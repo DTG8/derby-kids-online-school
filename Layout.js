@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { GraduationCap, Mail, Phone } from "lucide-react";
+import { GraduationCap, Mail, Phone, Menu, X } from "lucide-react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 
 export default function Layout({ children }) {
   const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -39,8 +40,8 @@ export default function Layout({ children }) {
               </div>
             </Link>
 
-            {/* Navigation - Always visible, text only */}
-            <div className="flex flex-1 items-center justify-end gap-3 sm:gap-4 lg:gap-6">
+            {/* Desktop Navigation - Hidden on mobile */}
+            <div className="hidden md:flex flex-1 items-center justify-end gap-3 sm:gap-4 lg:gap-6">
               {navLinks.map((link) => {
                 const active = isActive(link.href);
                 return (
@@ -66,7 +67,50 @@ export default function Layout({ children }) {
                 </Button>
               </Link>
             </div>
+
+            {/* Mobile Hamburger Button - Only visible on mobile */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl text-white hover:bg-white/10 focus:outline-none focus:ring-0 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
+
+          {/* Mobile Menu - Slides down from header */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-white/20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6]">
+              <div className="px-4 py-4 space-y-2">
+                {navLinks.map((link) => {
+                  const active = isActive(link.href);
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block font-medium transition-[color,background-color] duration-200 ease-in-out px-4 py-3 rounded-xl focus:outline-none focus:ring-0 ${
+                        active
+                          ? "text-[#FBBF24] font-semibold bg-white/10"
+                          : "text-white hover:text-[#FBBF24] hover:bg-white/5"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block">
+                  <Button size="lg" className="w-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-3 px-6 text-base shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out focus:outline-none focus:ring-0">
+                    Enroll Now
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )}
         </nav>
       </header>
 
