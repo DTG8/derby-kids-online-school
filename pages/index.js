@@ -37,12 +37,12 @@ export default function Home() {
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed">
                 Empowering young minds with quality education from the comfort of home.
-                Join thousands of students learning and growing with us.
+                Join over 100 students learning and growing with us.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link href="/contact" className="w-full sm:w-auto">
                   <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-4 sm:py-6 px-6 sm:px-8 text-base sm:text-lg shadow-xl hover:shadow-2xl w-full sm:w-auto">
-                    Start Your Journey
+                    Enroll Your Child Now
                   </Button>
                 </Link>
                 <Link href="/courses" className="w-full sm:w-auto">
@@ -90,8 +90,8 @@ export default function Home() {
               <div className="relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
                 <div className="absolute inset-0 rounded-2xl overflow-hidden">
                   <Image
-                    src="/books.jpeg"
-                    alt="Stack of colorful books"
+                    src="/kids.png"
+                    alt="Children learning together"
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover"
@@ -190,7 +190,7 @@ export default function Home() {
               </div>
               <div className="space-y-6">
                 <div>
-                  <p className="text-5xl font-bold text-[#FBBF24] mb-2">1000+</p>
+                  <p className="text-5xl font-bold text-[#FBBF24] mb-2">100+</p>
                   <p className="text-blue-100">Active Students</p>
                 </div>
                 <div>

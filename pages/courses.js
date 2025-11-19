@@ -1,66 +1,128 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BookOpen, Calculator, Globe, Palette, Music, Beaker, Code, Languages } from "lucide-react";
+import { BookOpen, Calculator, Globe, Music, Beaker, Code, GraduationCap, FileText, Rocket, Calendar, Book, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Courses() {
-  const courses = [
+  const coreSubjects = [
     {
       icon: BookOpen,
-      title: "English Language",
-      description: "Comprehensive reading, writing, and communication skills",
-      ages: "Ages 5-16",
+      title: "English Language Arts (ELA)",
+      description: "Reading, Writing, Grammar, Comprehension, and Creative Writing",
+      ages: "Ages 4-16",
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: Calculator,
       title: "Mathematics",
-      description: "From basic arithmetic to advanced problem-solving",
-      ages: "Ages 5-16",
+      description: "Problem Solving, Algebra, Geometry, Fractions, and Data Handling",
+      ages: "Ages 4-16",
       color: "from-purple-500 to-purple-600",
     },
     {
       icon: Beaker,
       title: "Science",
-      description: "Explore the wonders of biology, chemistry, and physics",
-      ages: "Ages 7-16",
+      description: "Earth Science, Life Science, and Physical Science",
+      ages: "Ages 4-16",
       color: "from-green-500 to-green-600",
-    },
-    {
-      icon: Globe,
-      title: "Social Studies",
-      description: "Understanding history, geography, and cultures",
-      ages: "Ages 7-16",
-      color: "from-orange-500 to-orange-600",
-    },
-    {
-      icon: Code,
-      title: "Computer Science",
-      description: "Coding, programming, and digital literacy",
-      ages: "Ages 8-16",
-      color: "from-cyan-500 to-cyan-600",
-    },
-    {
-      icon: Palette,
-      title: "Arts & Creativity",
-      description: "Unleash imagination through visual arts",
-      ages: "Ages 5-16",
-      color: "from-pink-500 to-pink-600",
     },
     {
       icon: Music,
       title: "Music",
-      description: "Learn instruments, theory, and musical expression",
-      ages: "Ages 6-16",
+      description: "Rhythm, Instruments, and Musical Expression",
+      ages: "Ages 4-16",
       color: "from-indigo-500 to-indigo-600",
     },
     {
-      icon: Languages,
-      title: "Foreign Languages",
-      description: "Learn new languages with native-speaking teachers",
-      ages: "Ages 7-16",
+      icon: Globe,
+      title: "Social Studies",
+      description: "History, Geography, and Global Awareness",
+      ages: "Ages 4-16",
+      color: "from-orange-500 to-orange-600",
+    },
+    {
+      icon: Code,
+      title: "ICT & Coding",
+      description: "Digital Skills, Online Safety, and Basic Programming",
+      ages: "Ages 4-16",
+      color: "from-cyan-500 to-cyan-600",
+    },
+  ];
+
+  const examPrep = [
+    {
+      icon: GraduationCap,
+      title: "11+ Preparation (UK)",
+      description: "Verbal and Non-Verbal Reasoning, English, and Maths",
+      ages: "Ages 4-16",
+      color: "from-red-500 to-red-600",
+    },
+    {
+      icon: FileText,
+      title: "GCSE Foundation & Higher Tier (UK)",
+      description: "English, Maths, Science",
+      ages: "Ages 4-16",
+      color: "from-yellow-500 to-yellow-600",
+    },
+    {
+      icon: GraduationCap,
+      title: "SAT Prep (US)",
+      description: "Reading, Writing, and Mathematics Readiness",
+      ages: "Ages 4-16",
+      color: "from-teal-500 to-teal-600",
+    },
+    {
+      icon: FileText,
+      title: "Cambridge Checkpoint Exams",
+      description: "English, Science, and Mathematics",
+      ages: "Ages 4-16",
+      color: "from-violet-500 to-violet-600",
+    },
+  ];
+
+  const enrichment = [
+    {
+      icon: Book,
+      title: "Phonics and Early Reading",
+      description: "Building strong reading foundations",
+      ages: "Ages 4-16",
+      color: "from-pink-500 to-pink-600",
+    },
+    {
+      icon: FileText,
+      title: "Creative Writing & Public Speaking",
+      description: "Develop communication and expression skills",
+      ages: "Ages 4-16",
+      color: "from-amber-500 to-amber-600",
+    },
+    {
+      icon: Rocket,
+      title: "STEM & Robotics Workshops",
+      description: "Hands-on science, technology, and engineering",
+      ages: "Ages 4-16",
+      color: "from-emerald-500 to-emerald-600",
+    },
+    {
+      icon: Calendar,
+      title: "Holiday Learning Camps",
+      description: "Intensive learning during school breaks",
+      ages: "Ages 4-16",
+      color: "from-sky-500 to-sky-600",
+    },
+    {
+      icon: Book,
+      title: "Bible and Character Studies",
+      description: "Building faith, values, and integrity",
+      ages: "Ages 4-16",
       color: "from-rose-500 to-rose-600",
+    },
+    {
+      icon: Gamepad2,
+      title: "Chess",
+      description: "Strategic thinking and problem-solving",
+      ages: "Ages 4-16",
+      color: "from-slate-500 to-slate-600",
     },
   ];
 
@@ -87,7 +149,7 @@ export default function Courses() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">Our Courses</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">Our Courses and Programs</h1>
             <div className="w-24 h-1 bg-[#FBBF24] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto px-4">
               Comprehensive curriculum designed to nurture young minds and prepare them for success
@@ -98,46 +160,113 @@ export default function Courses() {
 
       <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          {/* Core Academic Subjects */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Explore Our Programs
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+              Core Academic Subjects (Ages 4–16)
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              From core subjects to enrichment programs, we offer a well-rounded education
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {courses.map((course, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
-              >
-                <div className={`bg-gradient-to-br ${course.color} p-6 flex items-center justify-center`}>
-                  <course.icon className="w-16 h-16 text-white" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-4">{course.description}</p>
-                  <div className="flex items-center justify-between">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {coreSubjects.map((course, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                >
+                  <div className={`bg-gradient-to-br ${course.color} p-6 flex items-center justify-center`}>
+                    <course.icon className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
+                    <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
                     <span className="text-sm font-semibold text-[#F59E0B] bg-amber-50 px-3 py-1 rounded-full">
                       {course.ages}
                     </span>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Exam Preparation Programs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+              Exam Preparation Programs
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+              {examPrep.map((course, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                >
+                  <div className={`bg-gradient-to-br ${course.color} p-6 flex items-center justify-center`}>
+                    <course.icon className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-[#1E40AF] mb-2">{course.title}</h3>
+                    <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
+                    <span className="text-sm font-semibold text-[#F59E0B] bg-amber-50 px-3 py-1 rounded-full">
+                      {course.ages}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Enrichment and Skill-Based Programs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+              Enrichment and Skill-Based Programs
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {enrichment.map((course, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                >
+                  <div className={`bg-gradient-to-br ${course.color} p-6 flex items-center justify-center`}>
+                    <course.icon className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
+                    <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
+                    <span className="text-sm font-semibold text-[#F59E0B] bg-amber-50 px-3 py-1 rounded-full">
+                      {course.ages}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
