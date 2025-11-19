@@ -23,33 +23,33 @@ const benefits = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-20 md:py-32 overflow-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden">
+      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F59E0B] rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#F59E0B] rounded-full blur-3xl"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="w-full">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
                 Welcome to <span className="text-[#FBBF24]">Derby Kids</span> Online School
               </h1>
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed">
                 Empowering young minds with quality education from the comfort of home.
                 Join thousands of students learning and growing with us.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact">
-                  <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-6 px-8 text-lg shadow-xl hover:shadow-2xl w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-4 sm:py-6 px-6 sm:px-8 text-base sm:text-lg shadow-xl hover:shadow-2xl w-full sm:w-auto">
                     Start Your Journey
                   </Button>
                 </Link>
-                <Link href="/courses">
+                <Link href="/courses" className="w-full sm:w-auto">
                   <Button
                     size="lg"
                     style={{ color: "#1E40AF" }}
-                    className="border-2 border-white bg-white !text-[#1E40AF] hover:bg-white/90 font-bold py-6 px-8 text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
+                    className="border-2 border-white bg-white !text-[#1E40AF] hover:bg-white/90 font-bold py-4 sm:py-6 px-6 sm:px-8 text-base sm:text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
                   >
                     <span className="text-[#1E40AF]">Explore Courses</span>
                   </Button>
@@ -98,17 +98,17 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="p-8 lg:p-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1E40AF]">
+              <div className="p-6 sm:p-8 lg:p-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-[#1E40AF]">
                   Learning Without Borders, Growing <span className="relative">
                     Beyond Limits
                     <span className="absolute bottom-0 left-0 w-full h-1 bg-[#F59E0B] -mt-1"></span>
                   </span>
                 </h2>
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                   Where learning meets inspiration! We believe every child deserves access to a quality education that is flexible, engaging, and globally relevant. Our experienced teachers use proven learning strategies and interactive tools to help learners build strong academic foundations and the confidence to succeed.
                 </p>
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                   Whether your child needs full-time online schooling, support in English and Math, or exam preparation, Derby Kids provides the guidance, structure, and care that help learners thrive.
                 </p>
               </div>
@@ -117,13 +117,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
+      <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
               Why Choose Derby Kids?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               We provide world-class education with personalized attention for every student
             </p>
           </motion.div>
@@ -148,14 +148,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="w-full">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
                 What You&apos;ll Get
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
                 Derby Kids Online School offers comprehensive education with numerous benefits
                 for students and parents alike.
               </p>
@@ -172,7 +172,7 @@ export default function Home() {
                     <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-gray-700 text-lg">{benefit}</p>
+                    <p className="text-gray-700 text-base sm:text-lg">{benefit}</p>
                   </motion.div>
                 ))}
               </div>
@@ -207,12 +207,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1E40AF]">What Parents Say</h2>
-            <div className="w-24 h-1 bg-[#F59E0B] mx-auto mb-4"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Real stories from real families.</p>
+      <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-[#1E40AF] px-4">What Parents Say</h2>
+            <div className="w-24 h-1 bg-[#F59E0B] mx-auto mb-3 sm:mb-4"></div>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">Real stories from real families.</p>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -264,11 +264,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Learning?</h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">Ready to Start Learning?</h2>
+            <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               Join Derby Kids Online School today and give your child the gift of quality education.
             </p>
             <Link href="/contact">
