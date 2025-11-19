@@ -1,0 +1,140 @@
+================================================================
+DERBY KIDS ONLINE SCHOOL - HOW TO RUN THE WEBSITE LOCALLY
+================================================================
+
+STEP 1: Install Node.js
+------------------------
+If you don't have Node.js installed:
+1. Visit: https://nodejs.org/
+2. Download the LTS version (recommended)
+3. Run the installer
+4. Verify installation: Open PowerShell and type: node --version
+
+
+STEP 2: Install Project Dependencies
+-------------------------------------
+1. Open PowerShell
+2. Navigate to project folder:
+   cd C:\Derbykids
+
+3. Install all dependencies:
+   npm install
+
+   (This may take 2-3 minutes)
+
+
+STEP 3: Configure Email Service
+--------------------------------
+IMPORTANT: The contact form will NOT work without this!
+
+1. Go to: https://www.emailjs.com/
+2. Sign up for a free account
+3. Verify your email
+
+4. Set up Email Service:
+   - Click "Email Services"
+   - Click "Add New Service"
+   - Choose Gmail/Outlook/etc.
+   - Connect your email account
+   - Copy the SERVICE ID
+
+5. Create Email Template:
+   - Click "Email Templates"
+   - Click "Create New Template"
+   - In Subject: New Contact Form Submission from {{from_name}}
+   - In Content:
+     From: {{from_name}}
+     Email: {{from_email}}
+     Phone: {{phone}}
+     Subject: {{subject}}
+     Message: {{message}}
+   - Save and copy TEMPLATE ID
+
+6. Get Public Key:
+   - Click "Account" > "General"
+   - Copy your PUBLIC KEY
+
+7. Update the code:
+   - Open: C:\Derbykids\lib\emailService.js
+   - Replace these lines (6-8):
+     
+     const EMAILJS_SERVICE_ID = 'paste_your_service_id_here';
+     const EMAILJS_TEMPLATE_ID = 'paste_your_template_id_here';
+     const EMAILJS_PUBLIC_KEY = 'paste_your_public_key_here';
+   
+   - Save the file
+
+
+STEP 4: Run the Website
+------------------------
+1. Make sure you're in the project folder:
+   cd C:\Derbykids
+
+2. Start the development server:
+   npm run dev
+
+3. Wait for this message:
+   "ready - started server on 0.0.0.0:3000, url: http://localhost:3000"
+
+4. Open your browser and go to:
+   http://localhost:3000
+
+
+STEP 5: Test the Website
+-------------------------
+1. Browse all pages:
+   - Home (/)
+   - About (/about)
+   - Courses (/courses)
+   - Contact (/contact)
+
+2. Test the contact form:
+   - Fill in all required fields
+   - Click "Send Message"
+   - Check your email inbox for the message
+
+
+================================================================
+TROUBLESHOOTING
+================================================================
+
+Problem: "npm is not recognized"
+Solution: Node.js is not installed or not in PATH. Reinstall Node.js.
+
+Problem: Port 3000 is already in use
+Solution: Use a different port: npm run dev -- -p 3001
+
+Problem: Email not sending
+Solution: 
+- Check EmailJS credentials in lib/emailService.js
+- Look at browser console (F12) for errors
+- Verify EmailJS service is connected and active
+
+Problem: Module not found errors
+Solution:
+- Delete node_modules folder
+- Delete .next folder (if exists)
+- Run: npm install
+- Run: npm run dev
+
+================================================================
+USEFUL COMMANDS
+================================================================
+
+npm install          - Install dependencies
+npm run dev          - Run development server
+npm run build        - Build for production
+npm run start        - Run production build
+npm run lint         - Check code for errors
+
+================================================================
+NEED HELP?
+================================================================
+
+Email: derbykidshouse@gmail.com
+Phone: +234 806 263 0979
+WhatsApp: https://wa.me/2348062630979
+
+Read the README.md file for more detailed information!
+================================================================
+
