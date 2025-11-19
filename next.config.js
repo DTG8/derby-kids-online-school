@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   pageExtensions: ['js', 'jsx'],
   images: {
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
