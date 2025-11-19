@@ -71,7 +71,7 @@ export default function Layout({ children }) {
             {/* Mobile Hamburger Button - Only visible on mobile */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-white hover:bg-white/10 focus:outline-none focus:ring-0 transition-colors"
+              className="md:hidden ml-auto p-2 rounded-xl text-white hover:bg-white/10 focus:outline-none focus:ring-0 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
