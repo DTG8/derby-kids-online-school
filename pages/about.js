@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Target, Eye, Heart, Users, Award, Lightbulb } from "lucide-react";
 
 export default function About() {
@@ -118,20 +119,33 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100"
+            className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100"
           >
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              Our team consists of experienced educators, technology experts, and passionate
-              individuals who believe in the transformative power of education. We combine
-              traditional teaching excellence with modern technology to create an engaging,
-              effective learning experience.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Every day, we work tirelessly to ensure that our students receive personalized
-              attention, comprehensive curriculum coverage, and the support they need to
-              succeed academically and personally. Our commitment extends beyond academics
-              to nurturing well-rounded individuals prepared for the challenges of tomorrow.
-            </p>
+            <div className="grid lg:grid-cols-2 gap-0">
+              <div className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden rounded-t-3xl lg:rounded-3xl">
+                <Image
+                  src="/teens.png"
+                  alt="Teenage students learning together"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                  Our team consists of experienced educators, technology experts, and passionate
+                  individuals who believe in the transformative power of education. We combine
+                  traditional teaching excellence with modern technology to create an engaging,
+                  effective learning experience.
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  Every day, we work tirelessly to ensure that our students receive personalized
+                  attention, comprehensive curriculum coverage, and the support they need to
+                  succeed academically and personally. Our commitment extends beyond academics
+                  to nurturing well-rounded individuals prepared for the challenges of tomorrow.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
