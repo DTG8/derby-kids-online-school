@@ -35,7 +35,7 @@ export default function Layout({ children }) {
                 <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 text-[#1E40AF]" />
               </div>
               <div>
-                <h1 className="text-lg sm:text-xl font-bold">Derby Kids</h1>
+                <h1 className="text-lg sm:text-xl font-bold text-[#FBBF24]">Derby Kids</h1>
                 <p className="text-[10px] sm:text-xs text-blue-200">Online School</p>
               </div>
             </Link>
