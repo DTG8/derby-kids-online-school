@@ -1,46 +1,57 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { GraduationCap, Award, BookOpen, Users, Star, Quote } from "lucide-react";
+import { GraduationCap, Award, BookOpen, Users, Quote } from "lucide-react";
 
 export default function Tutors() {
   const tutors = [
     {
-      name: "Dr. Sarah Mitchell",
-      title: "Mathematics & Science Specialist",
-      qualifications: "Ph.D. in Mathematics Education, M.Ed. in Curriculum Design",
-      experience: "15+ years of teaching experience",
-      expertise: ["Mathematics", "Physics", "Chemistry", "Advanced Problem Solving"],
-      bio: "Passionate educator with a proven track record of helping students excel in STEM subjects. Specializes in making complex concepts accessible and engaging.",
+      name: "Mrs. Kofoworola Martins",
+      title: "Lead Tutor & Educational Consultant",
+      qualifications:
+        "M.Sc in Communication • B.A. English • PGDE in Educational Management • TRCN Certified",
+      experience: "16 years of dedicated teaching experience across multiple subjects and age groups.",
+      expertise: [
+        "English Language & Communication",
+        "Curriculum Design",
+        "Educational Management",
+        "Culturally Responsive Teaching",
+      ],
+      bio: "Kofoworola Martins is a seasoned tutor with sixteen years of classroom and coaching experience. She combines deep subject knowledge with a strong understanding of curriculum design and cultural nuances to create learning experiences that truly meet each child where they are.",
       testimonials: [
         {
-          quote: "Dr. Mitchell helped my daughter overcome her fear of math. Now she's one of the top students in her class!",
-          author: "Mrs. Johnson, Parent"
+          quote:
+            "My teaching philosophy is that every child should be given the opportunity to explore the world and express their own perceptions about life according to their experiences in life.",
+          author: "Teaching Philosophy – Mrs. Kofoworola Martins",
         },
-        {
-          quote: "The way she explains physics concepts is amazing. I finally understand everything!",
-          author: "David, Grade 11 Student"
-        }
       ],
-      avatar: "SM"
+      quoteLabel: "Teaching Philosophy",
+      avatar: "KM",
+      image: "/tutors/kofoworola.jpg",
     },
     {
-      name: "Mr. James Adewale",
-      title: "English Language & Literature Expert",
-      qualifications: "M.A. in English Literature, B.Ed. in Language Arts",
-      experience: "12+ years of teaching experience",
-      expertise: ["English Language", "Creative Writing", "Literary Analysis", "Communication Skills"],
-      bio: "Dedicated to nurturing confident communicators and critical thinkers through interactive and engaging language instruction.",
+      name: "Mr. Ikechukwu Ozoemena",
+      title: "ICT, Coding & Mathematics Tutor",
+      qualifications: "B.Sc in Computer Science",
+      experience: "2 years of online ICT and coding teaching experience (Grades 1–6).",
+      expertise: [
+        "Scratch Coding",
+        "Python (Beginner – Intermediate)",
+        "Web Development Basics",
+        "Mathematics (Grades 1–6)",
+        "Virtual Classroom Instruction",
+      ],
+      bio: "Mr. Ikechukwu Ozoemena is an enthusiastic ICT educator who designs engaging, age-appropriate lessons in Scratch, Python, web development, and mathematics for primary school learners. He focuses on building core problem‑solving skills and digital literacy in a fun, supportive environment.",
       testimonials: [
         {
-          quote: "My son's reading and writing skills have improved dramatically since working with Mr. Adewale.",
-          author: "Mrs. Thompson, Parent"
+          quote:
+            "I believe in making learning fun, interactive, and relevant, empowering students to become creative problem-solvers and critical thinkers.",
+          author: "Teaching Philosophy – Mr. Ikechukwu Ozoemena",
         },
-        {
-          quote: "Best English teacher ever! He makes every lesson interesting and fun.",
-          author: "Emma, Grade 9 Student"
-        }
       ],
-      avatar: "JA"
+      quoteLabel: "Teaching Philosophy",
+      avatar: "IO",
+      image: "/tutors/ikechukwu.jpg",
     },
     {
       name: "Ms. Emily Chen",
@@ -155,17 +166,35 @@ export default function Tutors() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="bg-white rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
-                <div className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] p-6 text-white">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center flex-shrink-0 border-2 border-white/30">
-                      <span className="text-white font-bold text-xl">{tutor.avatar}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold">{tutor.name}</h3>
-                      <p className="text-blue-100 text-sm">{tutor.title}</p>
+                {/* Tutor header with full-width image (or gradient fallback) */}
+                {tutor.image ? (
+                  <div className="relative h-60 w-full">
+                    <Image
+                      src={tutor.image}
+                      alt={tutor.name}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="object-cover object-[center_30%]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1E40AF]/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <h3 className="text-lg font-bold leading-snug">{tutor.name}</h3>
+                      <p className="text-blue-100 text-xs sm:text-sm">{tutor.title}</p>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] p-6 text-white">
+                    <div className="flex items-center gap-4 mb-2">
+                      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 border-2 border-white/30">
+                        <span className="text-white font-bold text-xl">{tutor.avatar}</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold leading-snug">{tutor.name}</h3>
+                        <p className="text-blue-100 text-xs sm:text-sm">{tutor.title}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
@@ -200,17 +229,19 @@ export default function Tutors() {
                   <div className="border-t border-gray-200 pt-4">
                     <div className="flex items-center gap-2 mb-3">
                       <Quote className="w-5 h-5 text-[#F59E0B]" />
-                      <p className="text-sm font-semibold text-[#1E40AF]">Testimonials</p>
+                      <p className="text-sm font-semibold text-[#1E40AF]">
+                        {tutor.quoteLabel || "Teaching Philosophy & Approach"}
+                      </p>
                     </div>
                     <div className="space-y-3">
                       {tutor.testimonials.map((testimonial, testimonialIndex) => (
-                        <div key={testimonialIndex} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                          <div className="flex gap-1 mb-2">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 fill-[#FBBF24] text-[#FBBF24]" />
-                            ))}
-                          </div>
-                          <p className="text-gray-700 text-xs leading-relaxed mb-2 italic">&quot;{testimonial.quote}&quot;</p>
+                        <div
+                          key={testimonialIndex}
+                          className="bg-gray-50 rounded-xl p-4 border border-gray-100"
+                        >
+                          <p className="text-gray-700 text-xs leading-relaxed mb-2 italic">
+                            &quot;{testimonial.quote}&quot;
+                          </p>
                           <p className="text-gray-500 text-xs font-medium">{testimonial.author}</p>
                         </div>
                       ))}
