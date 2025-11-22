@@ -26,37 +26,74 @@ export default function Home() {
   // Background slideshow state
   const backgrounds = [
     { type: "gradient", value: "from-[#1E40AF] via-[#2563EB] to-[#3B82F6]" }, // Royal blue gradient
-    { type: "image", value: "/hero.jpeg" },
+    { type: "image", value: "/confident.png" },
     { type: "image", value: "/kids.png" },
     { type: "image", value: "/teens.png" },
+    { type: "image", value: "/music.png" },
+    { type: "image", value: "/hero.jpeg" },
   ];
 
   const [currentBackground, setCurrentBackground] = useState(0);
-  const [backgroundKey, setBackgroundKey] = useState(0); // Key for forcing re-render on transition
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBackground((prev) => {
-        const next = (prev + 1) % backgrounds.length;
-        setBackgroundKey((k) => k + 1); // Update key to trigger transition
-        return next;
-      });
-    }, 5000); // Change background every 5 seconds
+    // Start transition 1 second after page loads
+    let timeout;
+    
+    const scheduleNextTransition = (currentIndex) => {
+      const next = (currentIndex + 1) % backgrounds.length;
+      // If transitioning from gradient (index 0) to confident.png (index 1), use 1.5 seconds
+      // Otherwise use 5 seconds
+      const delay = currentIndex === 0 ? 1500 : 5000;
+      
+      timeout = setTimeout(() => {
+        setCurrentBackground(next);
+        scheduleNextTransition(next);
+      }, delay);
+    };
 
-    return () => clearInterval(interval);
+    // Wait 1.5 seconds, then immediately transition from gradient to confident.png
+    const initialDelay = setTimeout(() => {
+      setCurrentBackground(1); // Move to confident.png
+      scheduleNextTransition(1); // Continue from there
+    }, 1500); // 1.5 second delay before first transition
+
+    return () => {
+      clearTimeout(initialDelay);
+      if (timeout) clearTimeout(timeout);
+    };
   }, []);
 
   const currentBg = backgrounds[currentBackground];
+  const prevBg = backgrounds[(currentBackground - 1 + backgrounds.length) % backgrounds.length];
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <FloatingIcons />
-      <section className="relative text-white py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden">
+      <section className="relative text-white py-8 sm:py-12 md:py-16 lg:py-32 overflow-hidden">
+        {/* Previous background (stays visible during transition) */}
+        <div className="absolute inset-0">
+          {prevBg.type === "gradient" ? (
+            <div className={`absolute inset-0 bg-gradient-to-br ${prevBg.value}`}></div>
+          ) : (
+            <div className="absolute inset-0">
+              <Image
+                src={prevBg.value}
+                alt="Background"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/80 via-[#2563EB]/70 to-[#3B82F6]/80"></div>
+            </div>
+          )}
+        </div>
+        {/* Current background fading in */}
         <motion.div
-          key={backgroundKey}
+          key={currentBackground}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           {currentBg.type === "gradient" ? (
@@ -82,16 +119,16 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="w-full">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">
                 Welcome to <span className="text-[#FBBF24]">Derby Kids</span> Online School
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 mb-4 sm:mb-6 md:mb-8 leading-relaxed">
                 Empowering young minds with quality education from the comfort of home.
                 Join over 100 students learning and growing with us.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
                 <Link href="/contact" className="w-full sm:w-auto">
-                  <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-4 sm:py-6 px-6 sm:px-8 text-base sm:text-lg shadow-xl hover:shadow-2xl w-full sm:w-auto">
+                  <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-3 sm:py-4 md:py-6 px-4 sm:px-6 md:px-8 text-sm sm:text-base md:text-lg shadow-xl hover:shadow-2xl w-full sm:w-auto">
                     Enroll Your Child Now
                   </Button>
                 </Link>
@@ -99,7 +136,7 @@ export default function Home() {
                   <Button
                     size="lg"
                     style={{ color: "#1E40AF" }}
-                    className="border-2 border-white bg-white !text-[#1E40AF] hover:bg-white/90 font-bold py-4 sm:py-6 px-6 sm:px-8 text-base sm:text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
+                    className="border-2 border-white bg-white !text-[#1E40AF] hover:bg-white/90 font-bold py-3 sm:py-4 md:py-6 px-4 sm:px-6 md:px-8 text-sm sm:text-base md:text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
                   >
                     <span className="text-[#1E40AF]">Explore Courses</span>
                   </Button>

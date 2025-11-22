@@ -43,7 +43,7 @@ export default function FloatingIcons() {
             }}
           >
             <icon.Icon
-              className="opacity-55 hover:opacity-70 transition-opacity"
+              className="opacity-40 hover:opacity-50 transition-opacity"
               size={icon.size}
               color={icon.color}
               fill="none"
