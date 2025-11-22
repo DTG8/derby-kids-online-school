@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -23,15 +23,63 @@ const benefits = [
 ];
 
 export default function Home() {
+  // Background slideshow state
+  const backgrounds = [
+    { type: "gradient", value: "from-[#1E40AF] via-[#2563EB] to-[#3B82F6]" }, // Royal blue gradient
+    { type: "image", value: "/hero.jpeg" },
+    { type: "image", value: "/kids.png" },
+    { type: "image", value: "/teens.png" },
+  ];
+
+  const [currentBackground, setCurrentBackground] = useState(0);
+  const [backgroundKey, setBackgroundKey] = useState(0); // Key for forcing re-render on transition
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBackground((prev) => {
+        const next = (prev + 1) % backgrounds.length;
+        setBackgroundKey((k) => k + 1); // Update key to trigger transition
+        return next;
+      });
+    }, 5000); // Change background every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentBg = backgrounds[currentBackground];
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <FloatingIcons />
-      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative text-white py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden">
+        <motion.div
+          key={backgroundKey}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          {currentBg.type === "gradient" ? (
+            <div className={`absolute inset-0 bg-gradient-to-br ${currentBg.value}`}></div>
+          ) : (
+            <div className="absolute inset-0">
+              <Image
+                src={currentBg.value}
+                alt="Background"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/80 via-[#2563EB]/70 to-[#3B82F6]/80"></div>
+            </div>
+          )}
+        </motion.div>
+        <div className="absolute inset-0 opacity-10 z-10">
           <div className="absolute top-20 left-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#F59E0B] rounded-full blur-3xl"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="w-full">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">

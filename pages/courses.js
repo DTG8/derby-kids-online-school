@@ -13,30 +13,35 @@ export default function Courses() {
       title: "English Language Arts (ELA)",
       description: "Reading, Writing, Grammar, Comprehension, and Creative Writing",
       color: "from-blue-500 to-blue-600",
+      image: "/english.png",
     },
     {
       icon: Calculator,
       title: "Mathematics",
       description: "Problem Solving, Algebra, Geometry, Fractions, and Data Handling",
       color: "from-purple-500 to-purple-600",
+      image: "/mathematics.png",
     },
     {
       icon: Beaker,
       title: "Science",
       description: "Earth Science, Life Science, and Physical Science",
       color: "from-green-500 to-green-600",
+      image: "/science.png",
     },
     {
       icon: Music,
       title: "Music",
       description: "Rhythm, Instruments, and Musical Expression",
       color: "from-indigo-500 to-indigo-600",
+      image: "/music.png",
     },
     {
       icon: Globe,
       title: "Social Studies",
       description: "History, Geography, and Global Awareness",
       color: "from-orange-500 to-orange-600",
+      image: "/social.png",
     },
     {
       icon: Code,
@@ -154,17 +159,24 @@ export default function Courses() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden group"
                 >
-                  <div className={`bg-gradient-to-br ${course.color} p-6 flex items-center justify-center`}>
-                    <course.icon className="w-16 h-16 text-white" />
+                  <div className="relative h-40 overflow-hidden">
+                    <Image
+                      src={course.image || (index % 2 === 0 ? "/books.jpeg" : "/teens.png")}
+                      alt={course.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-20`}></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <course.icon className="w-16 h-16 text-white relative z-10" />
+                    </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
                     <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
-                    <span className="text-sm font-semibold text-[#F59E0B] bg-amber-50 px-3 py-1 rounded-full">
-                      {course.ages}
-                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -200,7 +212,7 @@ export default function Courses() {
                       sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-80`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-20`}></div>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <course.icon className="w-12 h-12 text-white relative z-10" />
                     </div>
@@ -237,13 +249,13 @@ export default function Courses() {
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={index % 2 === 0 ? "/kids.png" : "/hero.jpeg"}
+                      src={course.title === "Chess" ? "/chess.png" : (index % 2 === 0 ? "/kids.png" : "/hero.jpeg")}
                       alt={course.title}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-80`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-20`}></div>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <course.icon className="w-16 h-16 text-white relative z-10" />
                     </div>
