@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BookOpen, Calculator, Globe, Music, Beaker, Code, GraduationCap, FileText, Rocket, Calendar, Book, Gamepad2 } from "lucide-react";
+import { BookOpen, Calculator, Globe, Music, Beaker, Code, GraduationCap, FileText, Book, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Courses() {
@@ -10,42 +10,36 @@ export default function Courses() {
       icon: BookOpen,
       title: "English Language Arts (ELA)",
       description: "Reading, Writing, Grammar, Comprehension, and Creative Writing",
-      ages: "Ages 4-16",
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: Calculator,
       title: "Mathematics",
       description: "Problem Solving, Algebra, Geometry, Fractions, and Data Handling",
-      ages: "Ages 4-16",
       color: "from-purple-500 to-purple-600",
     },
     {
       icon: Beaker,
       title: "Science",
       description: "Earth Science, Life Science, and Physical Science",
-      ages: "Ages 4-16",
       color: "from-green-500 to-green-600",
     },
     {
       icon: Music,
       title: "Music",
       description: "Rhythm, Instruments, and Musical Expression",
-      ages: "Ages 4-16",
       color: "from-indigo-500 to-indigo-600",
     },
     {
       icon: Globe,
       title: "Social Studies",
       description: "History, Geography, and Global Awareness",
-      ages: "Ages 4-16",
       color: "from-orange-500 to-orange-600",
     },
     {
       icon: Code,
       title: "ICT & Coding",
       description: "Digital Skills, Online Safety, and Basic Programming",
-      ages: "Ages 4-16",
       color: "from-cyan-500 to-cyan-600",
     },
   ];
@@ -55,28 +49,24 @@ export default function Courses() {
       icon: GraduationCap,
       title: "11+ Preparation (UK)",
       description: "Verbal and Non-Verbal Reasoning, English, and Maths",
-      ages: "Ages 4-16",
       color: "from-red-500 to-red-600",
     },
     {
       icon: FileText,
       title: "GCSE Foundation & Higher Tier (UK)",
       description: "English, Maths, Science",
-      ages: "Ages 4-16",
       color: "from-yellow-500 to-yellow-600",
     },
     {
       icon: GraduationCap,
       title: "SAT Prep (US)",
       description: "Reading, Writing, and Mathematics Readiness",
-      ages: "Ages 4-16",
       color: "from-teal-500 to-teal-600",
     },
     {
       icon: FileText,
       title: "Cambridge Checkpoint Exams",
       description: "English, Science, and Mathematics",
-      ages: "Ages 4-16",
       color: "from-violet-500 to-violet-600",
     },
   ];
@@ -86,42 +76,24 @@ export default function Courses() {
       icon: Book,
       title: "Phonics and Early Reading",
       description: "Building strong reading foundations",
-      ages: "Ages 4-16",
       color: "from-pink-500 to-pink-600",
     },
     {
       icon: FileText,
       title: "Creative Writing & Public Speaking",
       description: "Develop communication and expression skills",
-      ages: "Ages 4-16",
       color: "from-amber-500 to-amber-600",
-    },
-    {
-      icon: Rocket,
-      title: "STEM & Robotics Workshops",
-      description: "Hands-on science, technology, and engineering",
-      ages: "Ages 4-16",
-      color: "from-emerald-500 to-emerald-600",
-    },
-    {
-      icon: Calendar,
-      title: "Holiday Learning Camps",
-      description: "Intensive learning during school breaks",
-      ages: "Ages 4-16",
-      color: "from-sky-500 to-sky-600",
     },
     {
       icon: Book,
       title: "Bible and Character Studies",
       description: "Building faith, values, and integrity",
-      ages: "Ages 4-16",
       color: "from-rose-500 to-rose-600",
     },
     {
       icon: Gamepad2,
       title: "Chess",
       description: "Strategic thinking and problem-solving",
-      ages: "Ages 4-16",
       color: "from-slate-500 to-slate-600",
     },
   ];
@@ -169,7 +141,7 @@ export default function Courses() {
             className="mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Core Academic Subjects (Ages 4–16)
+              Core Academic Subjects
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               {coreSubjects.map((course, index) => (
@@ -222,10 +194,7 @@ export default function Courses() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-bold text-[#1E40AF] mb-2">{course.title}</h3>
-                    <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
-                    <span className="text-sm font-semibold text-[#F59E0B] bg-amber-50 px-3 py-1 rounded-full">
-                      {course.ages}
-                    </span>
+                    <p className="text-gray-600 text-sm">{course.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -258,10 +227,7 @@ export default function Courses() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
-                    <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
-                    <span className="text-sm font-semibold text-[#F59E0B] bg-amber-50 px-3 py-1 rounded-full">
-                      {course.ages}
-                    </span>
+                    <p className="text-gray-600 text-sm">{course.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -318,11 +284,12 @@ export default function Courses() {
               <div className="space-y-6 mb-8">
                 <div>
                   <p className="text-blue-100 mb-2">Class Duration</p>
-                  <p className="text-2xl font-bold">45-60 minutes</p>
+                  <p className="text-2xl font-bold">1 hour</p>
                 </div>
                 <div>
                   <p className="text-blue-100 mb-2">Class Size</p>
-                  <p className="text-2xl font-bold">Max 10 students</p>
+                  <p className="text-lg font-bold">One-on-one for all classes</p>
+                  <p className="text-sm text-blue-200 mt-1">(Coding, Chess, and Bible Studies available in groups)</p>
                 </div>
                 <div>
                   <p className="text-blue-100 mb-2">Schedule</p>

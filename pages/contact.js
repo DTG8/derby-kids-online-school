@@ -7,7 +7,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { emailService } from "@/lib/emailService";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+  const [formData, setFormData] = useState({ 
+    name: "", 
+    email: "", 
+    phone: "", 
+    subjects: "", 
+    age: "", 
+    class: "", 
+    sex: "", 
+    subject: "", 
+    message: "" 
+  });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -22,7 +32,17 @@ export default function Contact() {
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        setFormData({ 
+          name: "", 
+          email: "", 
+          phone: "", 
+          subjects: "", 
+          age: "", 
+          class: "", 
+          sex: "", 
+          subject: "", 
+          message: "" 
+        });
       }, 5000);
     } catch (err) {
       setIsSubmitting(false);
@@ -94,6 +114,37 @@ export default function Contact() {
                     <div>
                       <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
                       <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} className="w-full" placeholder="+234 806 263 0979" disabled={isSubmitting} />
+                    </div>
+                    <div>
+                      <label htmlFor="subjects" className="block text-sm font-semibold text-gray-700 mb-2">Subjects Interested In *</label>
+                      <Input id="subjects" name="subjects" value={formData.subjects} onChange={handleChange} required className="w-full" placeholder="e.g., Mathematics, English, Science" disabled={isSubmitting} />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="age" className="block text-sm font-semibold text-gray-700 mb-2">Age of Child *</label>
+                        <Input id="age" name="age" type="number" value={formData.age} onChange={handleChange} required className="w-full" placeholder="e.g., 8" min="1" max="18" disabled={isSubmitting} />
+                      </div>
+                      <div>
+                        <label htmlFor="class" className="block text-sm font-semibold text-gray-700 mb-2">Class *</label>
+                        <Input id="class" name="class" value={formData.class} onChange={handleChange} required className="w-full" placeholder="e.g., Grade 3" disabled={isSubmitting} />
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="sex" className="block text-sm font-semibold text-gray-700 mb-2">Sex *</label>
+                      <select 
+                        id="sex" 
+                        name="sex" 
+                        value={formData.sex} 
+                        onChange={handleChange} 
+                        required 
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={isSubmitting}
+                      >
+                        <option value="">Select...</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                      </select>
                     </div>
                     <div>
                       <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>

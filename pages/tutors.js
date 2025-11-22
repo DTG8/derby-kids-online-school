@@ -54,80 +54,156 @@ export default function Tutors() {
       image: "/tutors/ikechukwu.jpg",
     },
     {
-      name: "Ms. Emily Chen",
-      title: "Early Childhood & Primary Education",
-      qualifications: "M.Ed. in Early Childhood Education, Certified Montessori Teacher",
-      experience: "10+ years of teaching experience",
-      expertise: ["Early Literacy", "Numeracy", "Creative Arts", "Social Development"],
-      bio: "Specializes in creating a nurturing and stimulating learning environment for young learners, building strong foundations for lifelong learning.",
+      name: "Mrs. Adeniran Grace",
+      title: "Biology & Science Tutor",
+      qualifications: "B.Sc in Biology • N.C.E Biology/Computer • EYFS Certificate",
+      experience: "21 years of dedicated teaching experience with deep understanding of curriculum design and cultural nuances.",
+      expertise: [
+        "Biology",
+        "Science Education",
+        "Early Years Foundation Stage (EYFS)",
+        "Curriculum Design",
+        "Learner-Centered Instruction",
+      ],
+      bio: "Adeniran Grace is an excellent and committed tutor who opens minds, touches hearts, and plants the seed of knowledge that lasts a lifetime. With 21 years of experience, she brings a deep understanding of curriculum design and cultural nuances to her teaching practice.",
       testimonials: [
         {
-          quote: "Ms. Chen has a wonderful way with children. My 6-year-old absolutely loves her classes!",
-          author: "Mr. Williams, Parent"
+          quote:
+            "My teaching philosophy encompasses learner-centered instruction, inspiring, guiding, empowering minds and stimulating learners to meet their full potential by fostering critical thinking.",
+          author: "Teaching Philosophy – Mrs. Adeniran Grace",
         },
-        {
-          quote: "She makes learning so much fun! I love going to her classes every day.",
-          author: "Sophie, Grade 2 Student"
-        }
       ],
-      avatar: "EC"
+      quoteLabel: "Teaching Philosophy",
+      avatar: "AG",
+      image: "/tutors/grace.jpg",
     },
     {
-      name: "Dr. Michael Okafor",
-      title: "History & Social Studies Specialist",
-      qualifications: "Ph.D. in History, M.A. in Social Studies Education",
-      experience: "18+ years of teaching experience",
-      expertise: ["World History", "Geography", "Civics", "Research Methods"],
-      bio: "Brings history to life through engaging storytelling and interactive learning experiences, helping students understand the world around them.",
+      name: "Mrs. Agboola Dorcas Bunmi",
+      title: "Guidance & Counseling Tutor",
+      qualifications: "M.Ed Guidance and Counseling • B.Ed Guidance and Counseling • National Certificate in Primary Education studies/CRS • TRCN Certified",
+      experience: "23 years of seasoned teaching experience across various subjects and age groups.",
+      expertise: [
+        "Guidance and Counseling",
+        "Differentiated Learning",
+        "Cultural Diversity Awareness",
+        "Primary Education",
+        "Christian Religious Studies (CRS)",
+      ],
+      bio: "Agboola Dorcas Bunmi is a seasoned educator with 23 years of experience. Her expertise spans teaching various subjects and age groups, with a deep understanding of differentiated learning patterns and flexibility, being conscious of cultural diversity.",
       testimonials: [
         {
-          quote: "Dr. Okafor makes history fascinating. My daughter now wants to study history in college!",
-          author: "Mrs. Robinson, Parent"
+          quote:
+            "I believe every word, every contact, and every learning counts; these can be achieved via impactful teaching and learning to produce a total child.",
+          author: "Teaching Philosophy – Mrs. Agboola Dorcas Bunmi",
         },
-        {
-          quote: "I never thought history could be this interesting. His classes are amazing!",
-          author: "Alex, Grade 10 Student"
-        }
       ],
-      avatar: "MO"
+      quoteLabel: "Teaching Philosophy",
+      avatar: "ADB",
+      image: "/tutors/dorcas.jpg",
     },
     {
-      name: "Ms. Priya Sharma",
-      title: "Computer Science & Coding Instructor",
-      qualifications: "M.Sc. in Computer Science, Certified Coding Educator",
-      experience: "8+ years of teaching experience",
-      expertise: ["Programming", "Web Development", "Data Science", "Digital Literacy"],
-      bio: "Passionate about preparing students for the digital age through hands-on coding projects and real-world applications.",
+      name: "Mrs. Anthonia Adamma Orji",
+      title: "Educational Leader & Chemistry Tutor",
+      qualifications: "M.Ed in Educational Administration • B.Sc in Chemistry Education • Cambridge/Check Point International Examinations Professional",
+      experience: "32+ years of dedicated educational leadership and teaching experience.",
+      expertise: [
+        "Chemistry Education",
+        "Educational Administration",
+        "Curriculum Design",
+        "International Examinations (Cambridge/Check Point)",
+        "Cultural Sensitivity in Education",
+      ],
+      bio: "Anthonia Adamma Orji is a motivated and intentional educational leader who has dedicated over 32 years to improving the education, culture and climate of the schools she has worked with. Her skills encompass teaching diverse subjects and age groups, with expertise in designing curricula that respect and incorporate cultural sensitivities.",
       testimonials: [
         {
-          quote: "Ms. Sharma helped my son discover his passion for coding. He's now building his own apps!",
-          author: "Mr. Patel, Parent"
+          quote:
+            "I inspire students to become critical thinkers, problem-solvers, and compassionate individuals providing ongoing support, feedback, and encouragement. I also prepare students for success in an ever-changing world.",
+          author: "Teaching Philosophy – Mrs. Anthonia Adamma Orji",
         },
-        {
-          quote: "Learning to code with Ms. Sharma is the best part of my week. So fun and exciting!",
-          author: "Ryan, Grade 8 Student"
-        }
       ],
-      avatar: "PS"
+      quoteLabel: "Teaching Philosophy",
+      avatar: "AAO",
+      image: "/tutors/anthonia.jpg",
     },
     {
-      name: "Mrs. Fatima Al-Hassan",
-      title: "French & Spanish Language Teacher",
-      qualifications: "M.A. in Modern Languages, Native Speaker Certifications",
-      experience: "14+ years of teaching experience",
-      expertise: ["French", "Spanish", "Language Immersion", "Cultural Studies"],
-      bio: "Native speaker with extensive experience in language instruction, helping students achieve fluency through interactive and immersive methods.",
+      name: "Mrs. Tolorunloju Isioma",
+      title: "Biology, Basic Sciences & Grammar Tutor",
+      qualifications: "B.Sc. Botany • PGDE Biology • Cambridge Certification (in view, January batch) • TRCN (awaiting)",
+      experience: "15+ years on-site and 1+ year online teaching experience (Elementary, Middle School, High school, Exam preparatory classes).",
+      expertise: [
+        "Biology",
+        "Basic Sciences",
+        "Grammar",
+        "Child Development",
+        "Teaching Strategies",
+        "Multiple Intelligence",
+      ],
+      bio: "Tolorunloju Isioma is an experienced tutor specializing in Biology, Basic Sciences and Grammar. With a knack for making complex concepts absorbable, she is skilled in creating engaging lessons and adapting to students' learning styles. She has extensive training in child development, teaching strategies, and multiple intelligence, with a proven track record of helping students achieve excellent grades.",
       testimonials: [
         {
-          quote: "Mrs. Al-Hassan's teaching methods are excellent. My daughter is now fluent in French!",
-          author: "Mrs. Davis, Parent"
+          quote:
+            "My teaching style focuses on interactive and engaging lessons, personalized approach to meet individual needs, and building confidence and understanding in every student.",
+          author: "Teaching Philosophy – Mrs. Tolorunloju Isioma",
         },
-        {
-          quote: "Learning Spanish with her is amazing. I can now have conversations in Spanish!",
-          author: "Maria, Grade 7 Student"
-        }
       ],
-      avatar: "FA"
+      quoteLabel: "Teaching Philosophy",
+      avatar: "TI",
+      image: "/tutors/isioma.jpg",
+    },
+    {
+      name: "Mrs. Olukemi Kehinde",
+      title: "Microbiology & English Language Tutor",
+      qualifications: "M.Sc in Microbiology • B.Sc in Microbiology • PGDE in English Language • TRCN Certified Professional Educator",
+      experience: "15 years of outstanding teaching experience across multiple subjects and grade levels.",
+      expertise: [
+        "Microbiology",
+        "English Language",
+        "Curriculum Design",
+        "Learner Psychology",
+        "Cultural Diversity in Education",
+        "Socratic Questioning",
+      ],
+      bio: "Olukemi Kehinde is an intentional, dynamic, and highly seasoned tutor with 15 years of outstanding teaching experience. She brings a wealth of expertise across multiple subjects and grade levels, backed by a strong command of curriculum design, learner psychology, and cultural diversity. Her teaching journey has equipped her with the versatility and depth needed to support learners from different backgrounds, abilities, and learning styles.",
+      testimonials: [
+        {
+          quote:
+            "My teaching philosophy is firmly rooted in student-centered learning, where each child's unique strengths and growth areas are intentionally nurtured. I design interactive, engaging, and inquiry-driven lessons that ignite curiosity and deepen understanding. Through Socratic questioning, I challenge learners to think critically, analyze ideas, and take ownership of their learning. I am passionate about creating an inclusive, supportive, and motivating learning environment, one where every student feels valued, confident, and empowered to reach their fullest potential.",
+          author: "Teaching Philosophy – Mrs. Olukemi Kehinde",
+        },
+      ],
+      quoteLabel: "Teaching Philosophy",
+      avatar: "OK",
+      image: "/tutors/olukemi.jpg",
+    },
+    {
+      name: "Mrs. Bibian Onyinye Nwo",
+      title: "Elementary School Subjects Tutor",
+      qualifications: "B.Sc. Economics • PGDE • TEFL • TRCN (awaiting)",
+      experience: "13+ years on-site and 2+ years online teaching experience (Elementary, Middle School, High school, Exam preparatory classes).",
+      expertise: [
+        "English",
+        "Mathematics",
+        "Social Studies",
+        "Civic Education",
+        "Basic Science",
+        "Child Development",
+        "Teaching Strategies",
+        "Multiple Intelligence",
+        "Thinking Routines",
+        "Effective Class Management",
+        "Ethical Thinking",
+      ],
+      bio: "Bibian Onyinye Nwo is an experienced educator with 13 years of teaching, dedicated to simplifying complex ideas into clear, engaging, and easy-to-understand lessons. She is passionate about helping learners grasp concepts confidently through creative and student-friendly teaching methods. She has extensive training in child development, teaching strategies, multiple intelligence, thinking routines, effective class management and ethical thinking.",
+      testimonials: [
+        {
+          quote:
+            "My teaching style focuses on interactive and engaging lessons, personalized approach to meet individual needs, and building confidence and understanding in every student.",
+          author: "Teaching Philosophy – Mrs. Bibian Onyinye Nwo",
+        },
+      ],
+      quoteLabel: "Teaching Philosophy",
+      avatar: "BON",
+      image: "/tutors/bibian.jpg",
     }
   ];
 
