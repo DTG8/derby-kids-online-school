@@ -48,6 +48,7 @@ export default function Courses() {
       title: "ICT & Coding",
       description: "Digital Skills, Online Safety, and Basic Programming",
       color: "from-cyan-500 to-cyan-600",
+      image: "/ict.png",
     },
   ];
 
