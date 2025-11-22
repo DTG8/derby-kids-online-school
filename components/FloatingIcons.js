@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, GraduationCap, Cloud, Circle } from "lucide-react";
+import { Star, GraduationCap, Cloud, Sun } from "lucide-react";
 
 export default function FloatingIcons() {
   const icons = [
     { Icon: Star, color: "#FBBF24", size: 28 },
     { Icon: Star, color: "#F59E0B", size: 26 },
-    { Icon: Circle, color: "#1E40AF", size: 24, fill: true },
+    { Icon: Sun, color: "#FBBF24", size: 24 },
     { Icon: GraduationCap, color: "#2563EB", size: 28 },
     { Icon: Cloud, color: "#93C5FD", size: 32 },
     { Icon: Star, color: "#FBBF24", size: 24 },
@@ -46,7 +46,7 @@ export default function FloatingIcons() {
               className="opacity-55 hover:opacity-70 transition-opacity"
               size={icon.size}
               color={icon.color}
-              fill={icon.fill ? icon.color : "none"}
+              fill="none"
             />
           </motion.div>
         );
