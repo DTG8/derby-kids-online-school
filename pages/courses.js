@@ -284,16 +284,16 @@ export default function Courses() {
               <div className="space-y-6 mb-8">
                 <div>
                   <p className="text-blue-100 mb-2">Class Duration</p>
-                  <p className="text-2xl font-bold">1 hour</p>
+                  <p className="text-2xl font-bold text-[#FBBF24]">1 hour</p>
                 </div>
                 <div>
                   <p className="text-blue-100 mb-2">Class Size</p>
-                  <p className="text-lg font-bold">One-on-one for all classes</p>
+                  <p className="text-lg font-bold text-[#FBBF24]">One-on-one for all classes</p>
                   <p className="text-sm text-blue-200 mt-1">(Coding, Chess, and Bible Studies available in groups)</p>
                 </div>
                 <div>
                   <p className="text-blue-100 mb-2">Schedule</p>
-                  <p className="text-2xl font-bold">Flexible timing</p>
+                  <p className="text-2xl font-bold text-[#FBBF24]">Flexible timing</p>
                 </div>
               </div>
               <Link href="/contact">
