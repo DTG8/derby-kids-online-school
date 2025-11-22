@@ -60,29 +60,30 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl overflow-hidden shadow-2xl relative"
+              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl overflow-hidden shadow-2xl relative p-5 lg:p-6"
             >
-              <div className="relative h-64 lg:h-full min-h-[300px]">
-                <Image
-                  src="/kids.png"
-                  alt="Our Mission"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover opacity-30"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF] to-[#2563EB]"></div>
-              </div>
-              <div className="absolute inset-0 p-10 flex flex-col justify-center text-white">
-                <div className="w-16 h-16 bg-[#FBBF24] rounded-2xl flex items-center justify-center mb-6 relative z-10">
-                  <Target className="w-8 h-8 text-[#1E40AF]" />
+              <div className="flex flex-col lg:flex-row gap-5 items-start lg:items-center">
+                <div className="flex-1 flex flex-col">
+                  <div className="w-10 h-10 bg-[#FBBF24] rounded-xl flex items-center justify-center mb-3">
+                    <Target className="w-5 h-5 text-[#1E40AF]" />
+                  </div>
+                  <h2 className="text-2xl font-bold mb-3 text-white">Our Mission</h2>
+                  <p className="text-blue-100 text-sm leading-relaxed">
+                    To provide accessible, high-quality online education that empowers children
+                    to reach their full potential. We strive to create an engaging learning
+                    environment where every student can thrive, regardless of their location
+                    or circumstances.
+                  </p>
                 </div>
-                <h2 className="text-3xl font-bold mb-6 relative z-10">Our Mission</h2>
-                <p className="text-blue-100 text-lg leading-relaxed relative z-10">
-                  To provide accessible, high-quality online education that empowers children
-                  to reach their full potential. We strive to create an engaging learning
-                  environment where every student can thrive, regardless of their location
-                  or circumstances.
-                </p>
+                <div className="flex-shrink-0 w-full lg:w-64 h-64 relative rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/ourmission.png"
+                    alt="Our Mission"
+                    fill
+                    sizes="(min-width: 1024px) 256px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </motion.div>
 
@@ -91,29 +92,30 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#F59E0B] to-[#D97706] rounded-3xl overflow-hidden shadow-2xl relative"
+              className="bg-gradient-to-br from-[#F59E0B] to-[#D97706] rounded-3xl overflow-hidden shadow-2xl relative p-5 lg:p-6"
             >
-              <div className="relative h-64 lg:h-full min-h-[300px]">
-                <Image
-                  src="/hero.jpeg"
-                  alt="Our Vision"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover opacity-30"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F59E0B] to-[#D97706]"></div>
-              </div>
-              <div className="absolute inset-0 p-10 flex flex-col justify-center text-white">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 relative z-10">
-                  <Eye className="w-8 h-8 text-[#F59E0B]" />
+              <div className="flex flex-col lg:flex-row gap-5 items-start lg:items-center">
+                <div className="flex-1 flex flex-col">
+                  <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-3">
+                    <Eye className="w-5 h-5 text-[#F59E0B]" />
+                  </div>
+                  <h2 className="text-2xl font-bold mb-3 text-white">Our Vision</h2>
+                  <p className="text-amber-100 text-sm leading-relaxed">
+                    To become the leading online education platform for children worldwide,
+                    recognized for our innovative teaching methods, dedicated educators, and
+                    outstanding student outcomes. We envision a future where quality education
+                    knows no boundaries.
+                  </p>
                 </div>
-                <h2 className="text-3xl font-bold mb-6 relative z-10">Our Vision</h2>
-                <p className="text-amber-100 text-lg leading-relaxed relative z-10">
-                  To become the leading online education platform for children worldwide,
-                  recognized for our innovative teaching methods, dedicated educators, and
-                  outstanding student outcomes. We envision a future where quality education
-                  knows no boundaries.
-                </p>
+                <div className="flex-shrink-0 w-full lg:w-64 h-64 relative rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/ourvision.png"
+                    alt="Our Vision"
+                    fill
+                    sizes="(min-width: 1024px) 256px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
