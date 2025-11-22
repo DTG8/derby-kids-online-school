@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Target, Eye, Heart, Users, Award, Lightbulb } from "lucide-react";
+import FloatingIcons from "@/components/FloatingIcons";
 
 export default function About() {
   const values = [
@@ -28,7 +29,8 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden relative">
+      <FloatingIcons />
       <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
@@ -58,18 +60,30 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl p-10 text-white shadow-2xl"
+              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl overflow-hidden shadow-2xl relative"
             >
-              <div className="w-16 h-16 bg-[#FBBF24] rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-[#1E40AF]" />
+              <div className="relative h-64 lg:h-full min-h-[300px]">
+                <Image
+                  src="/kids.png"
+                  alt="Our Mission"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover opacity-30"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF] to-[#2563EB]"></div>
               </div>
-              <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-              <p className="text-blue-100 text-lg leading-relaxed">
-                To provide accessible, high-quality online education that empowers children
-                to reach their full potential. We strive to create an engaging learning
-                environment where every student can thrive, regardless of their location
-                or circumstances.
-              </p>
+              <div className="absolute inset-0 p-10 flex flex-col justify-center text-white">
+                <div className="w-16 h-16 bg-[#FBBF24] rounded-2xl flex items-center justify-center mb-6 relative z-10">
+                  <Target className="w-8 h-8 text-[#1E40AF]" />
+                </div>
+                <h2 className="text-3xl font-bold mb-6 relative z-10">Our Mission</h2>
+                <p className="text-blue-100 text-lg leading-relaxed relative z-10">
+                  To provide accessible, high-quality online education that empowers children
+                  to reach their full potential. We strive to create an engaging learning
+                  environment where every student can thrive, regardless of their location
+                  or circumstances.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -77,18 +91,30 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#F59E0B] to-[#D97706] rounded-3xl p-10 text-white shadow-2xl"
+              className="bg-gradient-to-br from-[#F59E0B] to-[#D97706] rounded-3xl overflow-hidden shadow-2xl relative"
             >
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6">
-                <Eye className="w-8 h-8 text-[#F59E0B]" />
+              <div className="relative h-64 lg:h-full min-h-[300px]">
+                <Image
+                  src="/hero.jpeg"
+                  alt="Our Vision"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover opacity-30"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F59E0B] to-[#D97706]"></div>
               </div>
-              <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
-              <p className="text-amber-100 text-lg leading-relaxed">
-                To become the leading online education platform for children worldwide,
-                recognized for our innovative teaching methods, dedicated educators, and
-                outstanding student outcomes. We envision a future where quality education
-                knows no boundaries.
-              </p>
+              <div className="absolute inset-0 p-10 flex flex-col justify-center text-white">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 relative z-10">
+                  <Eye className="w-8 h-8 text-[#F59E0B]" />
+                </div>
+                <h2 className="text-3xl font-bold mb-6 relative z-10">Our Vision</h2>
+                <p className="text-amber-100 text-lg leading-relaxed relative z-10">
+                  To become the leading online education platform for children worldwide,
+                  recognized for our innovative teaching methods, dedicated educators, and
+                  outstanding student outcomes. We envision a future where quality education
+                  knows no boundaries.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -175,13 +201,27 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-2xl flex items-center justify-center mb-6">
-                  <value.icon className="w-8 h-8 text-[#FBBF24]" />
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={["/kids.png", "/hero.jpeg", "/books.jpeg", "/teens.png"][index]}
+                    alt={value.title}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] opacity-60"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-[#FBBF24] rounded-2xl flex items-center justify-center relative z-10">
+                      <value.icon className="w-8 h-8 text-[#1E40AF]" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{value.title}</h3>
+                  <p className="text-gray-600">{value.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>

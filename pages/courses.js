@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BookOpen, Calculator, Globe, Music, Beaker, Code, GraduationCap, FileText, Book, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FloatingIcons from "@/components/FloatingIcons";
 
 export default function Courses() {
   const coreSubjects = [
@@ -108,7 +110,8 @@ export default function Courses() {
   ];
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden relative">
+      <FloatingIcons />
       <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
@@ -187,10 +190,20 @@ export default function Courses() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden group"
                 >
-                  <div className={`bg-gradient-to-br ${course.color} p-6 flex items-center justify-center`}>
-                    <course.icon className="w-16 h-16 text-white" />
+                  <div className="relative h-40 overflow-hidden">
+                    <Image
+                      src={index % 2 === 0 ? "/books.jpeg" : "/teens.png"}
+                      alt={course.title}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-80`}></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <course.icon className="w-12 h-12 text-white relative z-10" />
+                    </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-bold text-[#1E40AF] mb-2">{course.title}</h3>
@@ -220,10 +233,20 @@ export default function Courses() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden group"
                 >
-                  <div className={`bg-gradient-to-br ${course.color} p-6 flex items-center justify-center`}>
-                    <course.icon className="w-16 h-16 text-white" />
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={index % 2 === 0 ? "/kids.png" : "/hero.jpeg"}
+                      alt={course.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-80`}></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <course.icon className="w-16 h-16 text-white relative z-10" />
+                    </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>

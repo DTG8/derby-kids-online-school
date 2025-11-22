@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Video, Clock, Globe, Award, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FloatingIcons from "@/components/FloatingIcons";
 
 const features = [
   { icon: Video, title: "Live Interactive Classes", description: "Real-time learning with experienced teachers" },
@@ -23,7 +24,8 @@ const benefits = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden relative">
+      <FloatingIcons />
       <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
@@ -204,6 +206,164 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Showcase Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white w-full relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+              Our Learning Environment
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              See how we create engaging and supportive learning experiences for every child
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              { 
+                src: "/kids.png", 
+                alt: "Students learning together", 
+                title: "Interactive Learning",
+                description: "Engaging sessions that make learning fun and effective"
+              },
+              { 
+                src: "/onesupport.png", 
+                alt: "Online learning session", 
+                title: "One-on-One Support",
+                description: "Personalized attention for every student's unique needs"
+              },
+              { 
+                src: "/academic.png", 
+                alt: "Teenage students", 
+                title: "Academic Excellence",
+                description: "Building strong foundations for future success"
+              },
+              { 
+                src: "/resources.png", 
+                alt: "Educational materials", 
+                title: "Rich Resources",
+                description: "Comprehensive learning materials and tools"
+              },
+              { 
+                src: "/confident.png", 
+                alt: "Happy students", 
+                title: "Confident Learners",
+                description: "Nurturing self-confidence and love for learning"
+              },
+              { 
+                src: "/global.png", 
+                alt: "Global education", 
+                title: "Global Reach",
+                description: "Connecting students from around the world"
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+              How It Works
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              Getting started with Derby Kids Online School is simple and straightforward
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Contact Us",
+                description: "Reach out via phone, email, or fill out our enrollment form. Tell us about your child's learning needs and goals.",
+                image: "/hero.jpeg",
+              },
+              {
+                step: "02",
+                title: "Assessment & Matching",
+                description: "We assess your child's needs and match them with a suitable tutor who specializes in their required subjects.",
+                image: "/assessment.png",
+              },
+              {
+                step: "03",
+                title: "Schedule & Payment",
+                description: "Choose a flexible schedule that works for your family. Complete payment and receive all necessary materials.",
+                image: "/schedule.png",
+              },
+              {
+                step: "04",
+                title: "Start Learning",
+                description: "Begin interactive one-on-one sessions with your assigned tutor. Track progress through regular assessments.",
+                image: "/onelearn.png",
+              },
+              {
+                step: "05",
+                title: "Regular Updates",
+                description: "Receive progress reports and feedback. Communicate with tutors and adjust learning plans as needed.",
+                image: "/updates.png",
+              },
+              {
+                step: "06",
+                title: "Achieve Goals",
+                description: "Watch your child excel academically and gain confidence. Celebrate milestones and achievements together.",
+                image: "/goals.png",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute top-4 left-4 w-12 h-12 bg-[#FBBF24] rounded-full flex items-center justify-center">
+                    <span className="text-[#1E40AF] font-bold text-lg">{item.step}</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
