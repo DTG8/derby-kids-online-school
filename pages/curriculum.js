@@ -259,224 +259,241 @@ export default function Curriculum() {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Modal - Fullscreen Page Experience */}
       <AnimatePresence>
         {selectedGrade && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={closeModal}
+            className="fixed inset-0 bg-white z-50 overflow-hidden"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
+              className="h-full flex flex-col"
             >
-              {/* Modal Header */}
-              <div className={`bg-gradient-to-br ${selectedGrade.color} text-white p-6 sm:p-8 relative`}>
-                <button
-                  onClick={closeModal}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
-                  aria-label="Close modal"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+              {/* Fixed Header/Navigation Bar */}
+              <div className={`sticky top-0 z-10 bg-gradient-to-r ${selectedGrade.color} text-white shadow-lg`}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                  <div className="flex items-center justify-between">
+                    {/* Back Button */}
+                    <button
+                      onClick={closeModal}
+                      className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-colors"
+                    >
+                      <ChevronRight className="w-5 h-5 rotate-180" />
+                      <span className="font-semibold">Back to Grades</span>
+                    </button>
 
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                    <GraduationCap className="w-8 h-8" />
+                    {/* Title */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                        <GraduationCap className="w-6 h-6" />
+                      </div>
+                      <div className="text-right">
+                        <h1 className="text-2xl font-bold">{selectedGrade.grade}</h1>
+                        <p className="text-sm text-blue-100">{selectedGrade.ageRange}</p>
+                      </div>
+                    </div>
+
+                    {/* Close Button */}
+                    <button
+                      onClick={closeModal}
+                      className="w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
+                      aria-label="Close"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
                   </div>
-                  <div>
-                    <h2 className="text-3xl sm:text-4xl font-bold">{selectedGrade.grade}</h2>
-                    <p className="text-blue-100">{selectedGrade.ageRange}</p>
-                  </div>
+
+                  {/* Description */}
+                  <p className="mt-4 text-blue-50 max-w-4xl">{selectedGrade.description}</p>
                 </div>
-                <p className="text-lg text-blue-50">{selectedGrade.description}</p>
               </div>
 
-              {/* Modal Content */}
-              <div className="p-6 sm:p-8 overflow-y-auto max-h-[60vh]">
-                {selectedGrade.id === "grade1" && grade1CurriculumData ? (
-                  <>
-                    {/* International Alignments */}
-                    <div className="mb-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-100">
-                      <h3 className="text-xl font-bold text-[#1E40AF] mb-4 flex items-center gap-2">
-                        <Globe className="w-5 h-5" />
-                        Aligned with International Standards
-                      </h3>
-                      <div className="grid sm:grid-cols-2 gap-3">
-                        {grade1CurriculumData.alignments.map((alignment, index) => (
-                          <a
-                            key={index}
-                            href={alignment.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-sm text-blue-700 hover:text-blue-900 hover:underline transition-colors"
-                          >
-                            <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                            <span>{alignment.name}</span>
-                          </a>
-                        ))}
+              {/* Scrollable Content Area */}
+              <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                  {selectedGrade.id === "grade1" && grade1CurriculumData ? (
+                    <>
+                      {/* International Alignments */}
+                      <div className="mb-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-100">
+                        <h3 className="text-xl font-bold text-[#1E40AF] mb-4 flex items-center gap-2">
+                          <Globe className="w-5 h-5" />
+                          Aligned with International Standards
+                        </h3>
+                        <div className="grid sm:grid-cols-2 gap-3">
+                          {grade1CurriculumData.alignments.map((alignment, index) => (
+                            <a
+                              key={index}
+                              href={alignment.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-sm text-blue-700 hover:text-blue-900 hover:underline transition-colors"
+                            >
+                              <CheckCircle className="w-4 h-4 flex-shrink-0" />
+                              <span>{alignment.name}</span>
+                            </a>
+                          ))}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Term Tabs */}
-                    <div className="mb-6">
-                      <div className="flex gap-2 border-b border-gray-200 overflow-x-auto">
-                        {grade1CurriculumData.terms.map((term, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setActiveTab(index)}
-                            className={`px-6 py-3 font-semibold text-sm whitespace-nowrap transition-all ${activeTab === index
-                              ? "text-[#1E40AF] border-b-2 border-[#1E40AF]"
-                              : "text-gray-500 hover:text-gray-700"
-                              }`}
-                          >
-                            {term.term}
-                            <span className="block text-xs font-normal text-gray-500">{term.weeks}</span>
-                          </button>
-                        ))}
+                      {/* Term Tabs */}
+                      <div className="mb-6">
+                        <div className="flex gap-2 border-b border-gray-200 overflow-x-auto">
+                          {grade1CurriculumData.terms.map((term, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setActiveTab(index)}
+                              className={`px-6 py-3 font-semibold text-sm whitespace-nowrap transition-all ${activeTab === index
+                                ? "text-[#1E40AF] border-b-2 border-[#1E40AF]"
+                                : "text-gray-500 hover:text-gray-700"
+                                }`}
+                            >
+                              {term.term}
+                              <span className="block text-xs font-normal text-gray-500">{term.weeks}</span>
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Term Content */}
-                    <div className="space-y-8">
-                      {grade1CurriculumData.terms[activeTab].subjects.map((subject, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.05 }}
-                          className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
-                        >
-                          {/* Subject Header */}
-                          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-4 border-b border-gray-200">
-                            <div className="flex items-center gap-3">
-                              <span className="text-3xl">{subject.icon}</span>
-                              <div>
-                                <h4 className="text-xl font-bold text-[#1E40AF]">{subject.name}</h4>
-                                {subject.subtitle && (
-                                  <p className="text-sm text-gray-600 mt-1">{subject.subtitle}</p>
-                                )}
+                      {/* Term Content */}
+                      <div className="space-y-8">
+                        {grade1CurriculumData.terms[activeTab].subjects.map((subject, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: index * 0.05 }}
+                            className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+                          >
+                            {/* Subject Header */}
+                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-4 border-b border-gray-200">
+                              <div className="flex items-center gap-3">
+                                <span className="text-3xl">{subject.icon}</span>
+                                <div>
+                                  <h4 className="text-xl font-bold text-[#1E40AF]">{subject.name}</h4>
+                                  {subject.subtitle && (
+                                    <p className="text-sm text-gray-600 mt-1">{subject.subtitle}</p>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          {/* Weekly Plan Table */}
-                          <div className="overflow-x-auto">
-                            <table className="w-full text-sm">
-                              <thead className="bg-gray-50 border-b border-gray-200">
-                                <tr>
-                                  <th className="px-4 py-3 text-left font-semibold text-gray-700 w-16">Week</th>
-                                  {subject.weeklyPlan[0].objective !== undefined ? (
-                                    <>
-                                      <th className="px-4 py-3 text-left font-semibold text-gray-700">Objective</th>
-                                      <th className="px-4 py-3 text-left font-semibold text-gray-700">Topics</th>
-                                      <th className="px-4 py-3 text-left font-semibold text-gray-700">Activities</th>
-                                      <th className="px-4 py-3 text-left font-semibold text-gray-700">Assessment</th>
-                                    </>
-                                  ) : (
-                                    <>
-                                      <th className="px-4 py-3 text-left font-semibold text-gray-700">Focus</th>
-                                      <th className="px-4 py-3 text-left font-semibold text-gray-700">Activity</th>
-                                    </>
-                                  )}
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {subject.weeklyPlan.map((week, weekIndex) => (
-                                  <tr
-                                    key={weekIndex}
-                                    className={`border-b border-gray-100 hover:bg-blue-50/30 transition-colors ${weekIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
-                                      }`}
-                                  >
-                                    <td className="px-4 py-3 font-medium text-gray-900">{week.week}</td>
-                                    {week.objective !== undefined ? (
+                            {/* Weekly Plan Table */}
+                            <div className="overflow-x-auto">
+                              <table className="w-full text-sm">
+                                <thead className="bg-gray-50 border-b border-gray-200">
+                                  <tr>
+                                    <th className="px-4 py-3 text-left font-semibold text-gray-700 w-16">Week</th>
+                                    {subject.weeklyPlan[0].objective !== undefined ? (
                                       <>
-                                        <td className="px-4 py-3 text-gray-700">{week.objective}</td>
-                                        <td className="px-4 py-3 text-gray-600">{week.topics}</td>
-                                        <td className="px-4 py-3 text-gray-600">{week.activities}</td>
-                                        <td className="px-4 py-3 text-gray-600">{week.assessment || "—"}</td>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Objective</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Topics</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Activities</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Assessment</th>
                                       </>
                                     ) : (
                                       <>
-                                        <td className="px-4 py-3 text-gray-700">{week.focus}</td>
-                                        <td className="px-4 py-3 text-gray-600">{week.activity}</td>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Focus</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Activity</th>
                                       </>
                                     )}
                                   </tr>
-                                ))}
-                              </tbody>
-                            </table>
+                                </thead>
+                                <tbody>
+                                  {subject.weeklyPlan.map((week, weekIndex) => (
+                                    <tr
+                                      key={weekIndex}
+                                      className={`border-b border-gray-100 hover:bg-blue-50/30 transition-colors ${weekIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+                                        }`}
+                                    >
+                                      <td className="px-4 py-3 font-medium text-gray-900">{week.week}</td>
+                                      {week.objective !== undefined ? (
+                                        <>
+                                          <td className="px-4 py-3 text-gray-700">{week.objective}</td>
+                                          <td className="px-4 py-3 text-gray-600">{week.topics}</td>
+                                          <td className="px-4 py-3 text-gray-600">{week.activities}</td>
+                                          <td className="px-4 py-3 text-gray-600">{week.assessment || "—"}</td>
+                                        </>
+                                      ) : (
+                                        <>
+                                          <td className="px-4 py-3 text-gray-700">{week.focus}</td>
+                                          <td className="px-4 py-3 text-gray-600">{week.activity}</td>
+                                        </>
+                                      )}
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Default modal content for other grades */}
+                      <h3 className="text-2xl font-bold text-[#1E40AF] mb-6">Core Subjects</h3>
+
+                      <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                        {selectedGrade.subjects.map((subject, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100"
+                          >
+                            <div className="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-lg flex items-center justify-center flex-shrink-0">
+                              <Award className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="font-semibold text-gray-800">{subject}</span>
                           </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    {/* Default modal content for other grades */}
-                    <h3 className="text-2xl font-bold text-[#1E40AF] mb-6">Core Subjects</h3>
+                        ))}
+                      </div>
 
-                    <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                      {selectedGrade.subjects.map((subject, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100"
-                        >
-                          <div className="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Award className="w-5 h-5 text-white" />
-                          </div>
-                          <span className="font-semibold text-gray-800">{subject}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                      <h4 className="text-lg font-bold text-[#D97706] mb-3 flex items-center gap-2">
-                        <Users className="w-5 h-5" />
-                        Learning Outcomes
-                      </h4>
-                      <p className="text-gray-700 leading-relaxed mb-4">
-                        Students in {selectedGrade.grade} will develop comprehensive skills across all subject areas,
-                        building on previous knowledge while preparing for the next academic level.
-                      </p>
-                      <p className="text-gray-600 text-sm italic">
-                        Detailed curriculum breakdown, lesson plans, and learning objectives are provided to enrolled families.
-                      </p>
-                    </div>
-                  </>
-                )}
-
-                <div className="mt-6 flex justify-center gap-3">
-                  {selectedGrade.id === "grade1" && (
-                    <Link href="/contact">
-                      <Button
-                        size="lg"
-                        className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 px-8 shadow-xl"
-                      >
-                        Enroll Now
-                      </Button>
-                    </Link>
+                      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+                        <h4 className="text-lg font-bold text-[#D97706] mb-3 flex items-center gap-2">
+                          <Users className="w-5 h-5" />
+                          Learning Outcomes
+                        </h4>
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                          Students in {selectedGrade.grade} will develop comprehensive skills across all subject areas,
+                          building on previous knowledge while preparing for the next academic level.
+                        </p>
+                        <p className="text-gray-600 text-sm italic">
+                          Detailed curriculum breakdown, lesson plans, and learning objectives are provided to enrolled families.
+                        </p>
+                      </div>
+                    </>
                   )}
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-4 px-8 shadow-xl"
-                    onClick={closeModal}
-                  >
-                    Close
-                  </Button>
+
+                  <div className="mt-6 flex justify-center gap-3 pb-8">
+                    {selectedGrade.id === "grade1" && (
+                      <Link href="/contact">
+                        <Button
+                          size="lg"
+                          className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 px-8 shadow-xl"
+                        >
+                          Enroll Now
+                        </Button>
+                      </Link>
+                    )}
+                    <Button
+                      size="lg"
+                      className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-4 px-8 shadow-xl"
+                      onClick={closeModal}
+                    >
+                      Close
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div >
+    </div>
   );
 }
