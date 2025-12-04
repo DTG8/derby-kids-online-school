@@ -13,6 +13,7 @@ export default function Layout({ children }) {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Courses", href: "/courses" },
+    { name: "Curriculum", href: "/curriculum" },
     { name: "Tutors", href: "/tutors" },
   ];
 
@@ -48,11 +49,10 @@ export default function Layout({ children }) {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`font-medium transition-[color,background-color,transform] duration-200 ease-in-out relative group whitespace-nowrap px-3 sm:px-4 py-2 rounded-xl focus:outline-none focus:ring-0 will-change-[color,background-color,transform] ${
-                      active
+                    className={`font-medium transition-[color,background-color,transform] duration-200 ease-in-out relative group whitespace-nowrap px-3 sm:px-4 py-2 rounded-xl focus:outline-none focus:ring-0 will-change-[color,background-color,transform] ${active
                         ? "text-[#FBBF24] font-semibold bg-white/10"
                         : "text-white hover:text-[#FBBF24] hover:bg-white/5"
-                    }`}
+                      }`}
                   >
                     {link.name}
                     {!active && (
@@ -93,11 +93,10 @@ export default function Layout({ children }) {
                       key={link.name}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`block font-medium transition-[color,background-color] duration-200 ease-in-out px-4 py-3 rounded-xl focus:outline-none focus:ring-0 ${
-                        active
+                      className={`block font-medium transition-[color,background-color] duration-200 ease-in-out px-4 py-3 rounded-xl focus:outline-none focus:ring-0 ${active
                           ? "text-[#FBBF24] font-semibold bg-white/10"
                           : "text-white hover:text-[#FBBF24] hover:bg-white/5"
-                      }`}
+                        }`}
                     >
                       {link.name}
                     </Link>
@@ -164,15 +163,15 @@ export default function Layout({ children }) {
             <div className="flex-shrink-0">
               <h3 className="text-base font-bold mb-3 text-[#FBBF24]">Contact Us</h3>
               <div className="flex flex-col gap-2 text-white text-xs mb-3">
-                <a 
-                  href="mailto:derbykidshouse@gmail.com" 
+                <a
+                  href="mailto:derbykidshouse@gmail.com"
                   className="hover:text-[#FBBF24] transition-colors flex items-center gap-2"
                 >
                   <Mail className="w-3 h-3" />
                   derbykidshouse@gmail.com
                 </a>
-                <a 
-                  href="tel:+2348062630979" 
+                <a
+                  href="tel:+2348062630979"
                   className="hover:text-[#FBBF24] transition-colors flex items-center gap-2"
                 >
                   <Phone className="w-3 h-3" />
