@@ -5,6 +5,8 @@ import { BookOpen, GraduationCap, Award, Users, CheckCircle, X, ChevronRight, Gl
 import { Button } from "@/components/ui/button";
 import FloatingIcons from "@/components/FloatingIcons";
 import { grade1CurriculumData } from "@/lib/grade1Curriculum";
+import { grade2CurriculumData } from "@/lib/grade2Curriculum";
+import { grade3CurriculumData } from "@/lib/grade3Curriculum";
 
 const gradeData = [
   {
@@ -125,15 +127,37 @@ const curriculumFeatures = [
 export default function Curriculum() {
   const [selectedGrade, setSelectedGrade] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
+  const [currentCurriculumData, setCurrentCurriculumData] = useState(null);
+  const [activeTerm, setActiveTerm] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = (grade) => {
     setSelectedGrade(grade);
-    setActiveTab(0);
+    // Determine which curriculum data to use based on the selected grade
+    let data = null;
+    if (grade.id === 'grade1') {
+      data = grade1CurriculumData;
+    } else if (grade.id === 'grade2') {
+      data = grade2CurriculumData;
+    } else if (grade.id === 'grade3') {
+      data = grade3CurriculumData;
+    }
+    setCurrentCurriculumData(data);
+
+    // Default to Term 1 if data exists, otherwise null
+    if (data && data.terms && data.terms.length > 0) {
+      setActiveTerm(data.terms[0].term);
+    } else {
+      setActiveTerm(null);
+    }
+
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setSelectedGrade(null);
     setActiveTab(0);
+    setIsModalOpen(false);
   };
 
   return (
@@ -197,11 +221,11 @@ export default function Curriculum() {
               Derby Kids Online School — <em>preparing children for life, not just for exams.</em>
             </p>
           </motion.div>
-        </div>
-      </section>
+        </div >
+      </section >
 
       {/* Grade Cards Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white">
+      < section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -257,10 +281,10 @@ export default function Curriculum() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Modal - Fullscreen Page Experience */}
-      <AnimatePresence>
+      < AnimatePresence >
         {selectedGrade && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -317,7 +341,7 @@ export default function Curriculum() {
               {/* Scrollable Content Area */}
               <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                  {selectedGrade.id === "grade1" && grade1CurriculumData ? (
+                  {currentCurriculumData ? (
                     <>
                       {/* International Alignments */}
                       <div className="mb-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-100">
@@ -326,7 +350,7 @@ export default function Curriculum() {
                           Aligned with International Standards
                         </h3>
                         <div className="grid sm:grid-cols-2 gap-3">
-                          {grade1CurriculumData.alignments.map((alignment, index) => (
+                          {currentCurriculumData.alignments.map((alignment, index) => (
                             <a
                               key={index}
                               href={alignment.url}
@@ -344,7 +368,7 @@ export default function Curriculum() {
                       {/* Term Tabs */}
                       <div className="mb-6">
                         <div className="flex gap-2 border-b border-gray-200 overflow-x-auto">
-                          {grade1CurriculumData.terms.map((term, index) => (
+                          {currentCurriculumData.terms.map((term, index) => (
                             <button
                               key={index}
                               onClick={() => setActiveTab(index)}
@@ -362,7 +386,7 @@ export default function Curriculum() {
 
                       {/* Term Content */}
                       <div className="space-y-8">
-                        {grade1CurriculumData.terms[activeTab].subjects.map((subject, index) => (
+                        {currentCurriculumData.terms[activeTab].subjects.map((subject, index) => (
                           <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 10 }}
@@ -470,7 +494,7 @@ export default function Curriculum() {
                   )}
 
                   <div className="mt-6 flex justify-center gap-3 pb-8">
-                    {selectedGrade.id === "grade1" && (
+                    {(selectedGrade.id === "grade1" || selectedGrade.id === "grade2" || selectedGrade.id === "grade3") && (
                       <Link href="/contact">
                         <Button
                           size="lg"
@@ -493,7 +517,7 @@ export default function Curriculum() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
-    </div>
+      </AnimatePresence >
+    </div >
   );
 }
