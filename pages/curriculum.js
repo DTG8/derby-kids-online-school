@@ -7,6 +7,7 @@ import FloatingIcons from "@/components/FloatingIcons";
 import { grade1CurriculumData } from "@/lib/grade1Curriculum";
 import { grade2CurriculumData } from "@/lib/grade2Curriculum";
 import { grade3CurriculumData } from "@/lib/grade3Curriculum";
+import { grade4CurriculumData } from "@/lib/grade4Curriculum";
 
 const gradeData = [
   {
@@ -141,6 +142,8 @@ export default function Curriculum() {
       data = grade2CurriculumData;
     } else if (grade.id === 'grade3') {
       data = grade3CurriculumData;
+    } else if (grade.id === 'grade4') {
+      data = grade4CurriculumData;
     }
     setCurrentCurriculumData(data);
 
@@ -494,7 +497,7 @@ export default function Curriculum() {
                   )}
 
                   <div className="mt-6 flex justify-center gap-3 pb-8">
-                    {(selectedGrade.id === "grade1" || selectedGrade.id === "grade2" || selectedGrade.id === "grade3") && (
+                    {(selectedGrade.id === "grade1" || selectedGrade.id === "grade2" || selectedGrade.id === "grade3" || selectedGrade.id === "grade4") && (
                       <Link href="/contact">
                         <Button
                           size="lg"
