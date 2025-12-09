@@ -38,13 +38,13 @@ export default function Home() {
   useEffect(() => {
     // Start transition 1 second after page loads
     let timeout;
-    
+
     const scheduleNextTransition = (currentIndex) => {
       const next = (currentIndex + 1) % backgrounds.length;
       // If transitioning from gradient (index 0) to confident.png (index 1), use 1.5 seconds
       // Otherwise use 5 seconds
       const delay = currentIndex === 0 ? 1500 : 5000;
-      
+
       timeout = setTimeout(() => {
         setCurrentBackground(next);
         scheduleNextTransition(next);
@@ -141,23 +141,6 @@ export default function Home() {
                     <span className="text-[#1E40AF]">Explore Courses</span>
                   </Button>
                 </Link>
-              </div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="hidden lg:block">
-              <div className="relative">
-                <div className="w-full h-96 bg-white/10 backdrop-blur-lg rounded-3xl p-4 border border-white/20 shadow-2xl">
-                  <div className="relative w-full h-full rounded-2xl overflow-hidden">
-                    <Image
-                      src="/hero.jpeg"
-                      alt="Children learning online together"
-                      fill
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                      priority
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#1E40AF]/50 via-transparent to-transparent"></div>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -308,39 +291,39 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { 
-                src: "/kids.png", 
-                alt: "Students learning together", 
+              {
+                src: "/kids.png",
+                alt: "Students learning together",
                 title: "Interactive Learning",
                 description: "Engaging sessions that make learning fun and effective"
               },
-              { 
-                src: "/onesupport.png", 
-                alt: "Online learning session", 
+              {
+                src: "/onesupport.png",
+                alt: "Online learning session",
                 title: "One-on-One Support",
                 description: "Personalized attention for every student's unique needs"
               },
-              { 
-                src: "/academic.png", 
-                alt: "Teenage students", 
+              {
+                src: "/academic.png",
+                alt: "Teenage students",
                 title: "Academic Excellence",
                 description: "Building strong foundations for future success"
               },
-              { 
-                src: "/resources.png", 
-                alt: "Educational materials", 
+              {
+                src: "/resources.png",
+                alt: "Educational materials",
                 title: "Rich Resources",
                 description: "Comprehensive learning materials and tools"
               },
-              { 
-                src: "/confident.png", 
-                alt: "Happy students", 
+              {
+                src: "/confident.png",
+                alt: "Happy students",
                 title: "Confident Learners",
                 description: "Nurturing self-confidence and love for learning"
               },
-              { 
-                src: "/global.png", 
-                alt: "Global education", 
+              {
+                src: "/global.png",
+                alt: "Global education",
                 title: "Global Reach",
                 description: "Connecting students from around the world"
               },

@@ -8,7 +8,7 @@ export default function Tutors() {
   const tutors = [
     {
       name: "Mrs. Kofoworola Martins",
-      title: "Lead Tutor & Educational Consultant",
+      title: "English Language and Phonics Tutor",
       qualifications:
         "M.Sc in Communication • B.A. English • PGDE in Educational Management • TRCN Certified",
       experience: "16 years of dedicated teaching experience across multiple subjects and age groups.",
@@ -56,7 +56,7 @@ export default function Tutors() {
     },
     {
       name: "Mrs. Adeniran Grace",
-      title: "Biology & Science Tutor",
+      title: "Early Years Tutor",
       qualifications: "B.Sc in Biology • N.C.E Biology/Computer • EYFS Certificate",
       experience: "21 years of dedicated teaching experience with deep understanding of curriculum design and cultural nuances.",
       expertise: [
@@ -80,7 +80,7 @@ export default function Tutors() {
     },
     {
       name: "Mrs. Agboola Dorcas Bunmi",
-      title: "Guidance & Counseling Tutor",
+      title: "Guidance and Counseling/Elementary School Subjects Tutor",
       qualifications: "M.Ed Guidance and Counseling • B.Ed Guidance and Counseling • National Certificate in Primary Education studies/CRS • TRCN Certified",
       experience: "23 years of seasoned teaching experience across various subjects and age groups.",
       expertise: [
@@ -104,7 +104,7 @@ export default function Tutors() {
     },
     {
       name: "Mrs. Anthonia Adamma Orji",
-      title: "Educational Leader & Chemistry Tutor",
+      title: "Science and Mathematics Tutor",
       qualifications: "M.Ed in Educational Administration • B.Sc in Chemistry Education • Cambridge/Check Point International Examinations Professional",
       experience: "32+ years of dedicated educational leadership and teaching experience.",
       expertise: [
@@ -153,7 +153,7 @@ export default function Tutors() {
     },
     {
       name: "Mrs. Olukemi Kehinde",
-      title: "Microbiology & English Language Tutor",
+      title: "Lead Tutor and Educational Consultant",
       qualifications: "M.Sc in Microbiology • B.Sc in Microbiology • PGDE in English Language • TRCN Certified Professional Educator",
       experience: "15 years of outstanding teaching experience across multiple subjects and grade levels.",
       expertise: [
@@ -205,6 +205,30 @@ export default function Tutors() {
       quoteLabel: "Teaching Philosophy",
       avatar: "BON",
       image: "/tutors/bibian.jpg",
+    },
+    {
+      name: "Mrs. Joy Ijabiyi",
+      title: "History & International Studies Tutor",
+      qualifications: "B.A. in History and International Studies",
+      experience: "5 years of dedicated teaching experience.",
+      expertise: [
+        "History",
+        "International Studies",
+        "Critical Thinking",
+        "Student-Centered Learning",
+        "Personal Development",
+      ],
+      bio: "Joy Ijabiyi is a dedicated, innovative and student-centered educator with five years of teaching experience. She creates a supportive, learner-centered environment that promotes critical thinking, active participation and personal growth.",
+      testimonials: [
+        {
+          quote:
+            "My philosophy is built on the belief that every learner has the potential to succeed when guided with patience, structure and encouragement.",
+          author: "Teaching Philosophy – Mrs. Joy Ijabiyi",
+        },
+      ],
+      quoteLabel: "Teaching Philosophy",
+      avatar: "JI",
+      image: "/tutors/joy.jpg",
     }
   ];
 
@@ -215,7 +239,7 @@ export default function Tutors() {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
