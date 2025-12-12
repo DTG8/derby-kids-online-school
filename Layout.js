@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { GraduationCap, Mail, Phone, Menu, X } from "lucide-react";
+import { Mail, Phone, Menu, X } from "lucide-react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 
@@ -32,8 +33,15 @@ export default function Layout({ children }) {
           <div className="flex items-center h-16 w-full gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#FBBF24] rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 text-[#1E40AF]" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform flex-shrink-0">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Derby Kids Logo"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
               <div>
                 <h1 className="text-lg sm:text-xl font-bold text-[#FBBF24]">Derby Kids</h1>
@@ -50,8 +58,8 @@ export default function Layout({ children }) {
                     key={link.name}
                     href={link.href}
                     className={`font-medium transition-[color,background-color,transform] duration-200 ease-in-out relative group whitespace-nowrap px-3 sm:px-4 py-2 rounded-xl focus:outline-none focus:ring-0 will-change-[color,background-color,transform] ${active
-                        ? "text-[#FBBF24] font-semibold bg-white/10"
-                        : "text-white hover:text-[#FBBF24] hover:bg-white/5"
+                      ? "text-[#FBBF24] font-semibold bg-white/10"
+                      : "text-white hover:text-[#FBBF24] hover:bg-white/5"
                       }`}
                   >
                     {link.name}
@@ -94,8 +102,8 @@ export default function Layout({ children }) {
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className={`block font-medium transition-[color,background-color] duration-200 ease-in-out px-4 py-3 rounded-xl focus:outline-none focus:ring-0 ${active
-                          ? "text-[#FBBF24] font-semibold bg-white/10"
-                          : "text-white hover:text-[#FBBF24] hover:bg-white/5"
+                        ? "text-[#FBBF24] font-semibold bg-white/10"
+                        : "text-white hover:text-[#FBBF24] hover:bg-white/5"
                         }`}
                     >
                       {link.name}
@@ -126,11 +134,14 @@ export default function Layout({ children }) {
             {/* Left Column - About Section */}
             <div className="flex-1 min-w-0">
               <div className="flex items-start gap-3 mb-3">
-                <div className="w-10 h-10 bg-[#FBBF24] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[#1E40AF]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                  </svg>
+                <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image
+                    src="/logo.jpeg"
+                    alt="Derby Kids Logo"
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Derby Kids Online School</h3>
