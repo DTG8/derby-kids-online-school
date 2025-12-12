@@ -7,6 +7,31 @@ import FloatingIcons from "@/components/FloatingIcons";
 export default function Tutors() {
   const tutors = [
     {
+      name: "Mrs. Olukemi Kehinde",
+      title: "Lead Tutor and Educational Consultant",
+      qualifications: "M.Sc in Microbiology • B.Sc in Microbiology • PGDE in English Language • TRCN Certified Professional Educator",
+      experience: "15 years of outstanding teaching experience across multiple subjects and grade levels.",
+      expertise: [
+        "Microbiology",
+        "English Language",
+        "Curriculum Design",
+        "Learner Psychology",
+        "Cultural Diversity in Education",
+        "Socratic Questioning",
+      ],
+      bio: "Olukemi Kehinde is an intentional, dynamic, and highly seasoned tutor with 15 years of outstanding teaching experience. She brings a wealth of expertise across multiple subjects and grade levels, backed by a strong command of curriculum design, learner psychology, and cultural diversity. Her teaching journey has equipped her with the versatility and depth needed to support learners from different backgrounds, abilities, and learning styles.",
+      testimonials: [
+        {
+          quote:
+            "My teaching philosophy is firmly rooted in student-centered learning, where each child's unique strengths and growth areas are intentionally nurtured. I design interactive, engaging, and inquiry-driven lessons that ignite curiosity and deepen understanding. Through Socratic questioning, I challenge learners to think critically, analyze ideas, and take ownership of their learning. I am passionate about creating an inclusive, supportive, and motivating learning environment, one where every student feels valued, confident, and empowered to reach their fullest potential.",
+          author: "Teaching Philosophy – Mrs. Olukemi Kehinde",
+        },
+      ],
+      quoteLabel: "Teaching Philosophy",
+      avatar: "OK",
+      image: "/tutors/olukemi.jpg",
+    },
+    {
       name: "Mrs. Kofoworola Martins",
       title: "English Language and Phonics Tutor",
       qualifications:
@@ -152,31 +177,6 @@ export default function Tutors() {
       image: "/tutors/isioma.jpg",
     },
     {
-      name: "Mrs. Olukemi Kehinde",
-      title: "Lead Tutor and Educational Consultant",
-      qualifications: "M.Sc in Microbiology • B.Sc in Microbiology • PGDE in English Language • TRCN Certified Professional Educator",
-      experience: "15 years of outstanding teaching experience across multiple subjects and grade levels.",
-      expertise: [
-        "Microbiology",
-        "English Language",
-        "Curriculum Design",
-        "Learner Psychology",
-        "Cultural Diversity in Education",
-        "Socratic Questioning",
-      ],
-      bio: "Olukemi Kehinde is an intentional, dynamic, and highly seasoned tutor with 15 years of outstanding teaching experience. She brings a wealth of expertise across multiple subjects and grade levels, backed by a strong command of curriculum design, learner psychology, and cultural diversity. Her teaching journey has equipped her with the versatility and depth needed to support learners from different backgrounds, abilities, and learning styles.",
-      testimonials: [
-        {
-          quote:
-            "My teaching philosophy is firmly rooted in student-centered learning, where each child's unique strengths and growth areas are intentionally nurtured. I design interactive, engaging, and inquiry-driven lessons that ignite curiosity and deepen understanding. Through Socratic questioning, I challenge learners to think critically, analyze ideas, and take ownership of their learning. I am passionate about creating an inclusive, supportive, and motivating learning environment, one where every student feels valued, confident, and empowered to reach their fullest potential.",
-          author: "Teaching Philosophy – Mrs. Olukemi Kehinde",
-        },
-      ],
-      quoteLabel: "Teaching Philosophy",
-      avatar: "OK",
-      image: "/tutors/olukemi.jpg",
-    },
-    {
       name: "Mrs. Bibian Onyinye Nwo",
       title: "Elementary School Subjects Tutor",
       qualifications: "B.Sc. Economics • PGDE • TEFL • TRCN (awaiting)",
@@ -207,7 +207,7 @@ export default function Tutors() {
       image: "/tutors/bibian.jpg",
     },
     {
-      name: "Mrs. Joy Ijabiyi",
+      name: "Ms. Joy Ijabiyi",
       title: "History & International Studies Tutor",
       qualifications: "B.A. in History and International Studies",
       experience: "5 years of dedicated teaching experience.",
@@ -223,7 +223,7 @@ export default function Tutors() {
         {
           quote:
             "My philosophy is built on the belief that every learner has the potential to succeed when guided with patience, structure and encouragement.",
-          author: "Teaching Philosophy – Mrs. Joy Ijabiyi",
+          author: "Teaching Philosophy – Ms. Joy Ijabiyi",
         },
       ],
       quoteLabel: "Teaching Philosophy",

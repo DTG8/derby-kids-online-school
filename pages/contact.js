@@ -8,16 +8,22 @@ import { emailService } from "@/lib/emailService";
 import FloatingIcons from "@/components/FloatingIcons";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ 
-    name: "", 
-    email: "", 
-    phone: "", 
-    subjects: "", 
-    age: "", 
-    class: "", 
-    sex: "", 
-    subject: "", 
-    message: "" 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    childName: "",
+    subjects: "",
+    age: "",
+    class: "",
+    sex: "",
+    country: "",
+    city: "",
+    commencementDate: "",
+    daysAvailable: [],
+    timeAvailable: "",
+    subject: "",
+    message: ""
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,16 +39,22 @@ export default function Contact() {
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({ 
-          name: "", 
-          email: "", 
-          phone: "", 
-          subjects: "", 
-          age: "", 
-          class: "", 
-          sex: "", 
-          subject: "", 
-          message: "" 
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          childName: "",
+          subjects: "",
+          age: "",
+          class: "",
+          sex: "",
+          country: "",
+          city: "",
+          commencementDate: "",
+          daysAvailable: [],
+          timeAvailable: "",
+          subject: "",
+          message: ""
         });
       }, 5000);
     } catch (err) {
@@ -52,7 +64,17 @@ export default function Contact() {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    if (type === 'checkbox') {
+      setFormData(prev => ({
+        ...prev,
+        daysAvailable: checked
+          ? [...prev.daysAvailable, value]
+          : prev.daysAvailable.filter(day => day !== value)
+      }));
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const contactInfo = [
@@ -118,7 +140,11 @@ export default function Contact() {
                       <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} className="w-full" placeholder="+234 806 263 0979" disabled={isSubmitting} />
                     </div>
                     <div>
-                      <label htmlFor="subjects" className="block text-sm font-semibold text-gray-700 mb-2">Subjects Interested In *</label>
+                      <label htmlFor="childName" className="block text-sm font-semibold text-gray-700 mb-2">Name of Child *</label>
+                      <Input id="childName" name="childName" value={formData.childName} onChange={handleChange} required className="w-full" placeholder="Your child's full name" disabled={isSubmitting} />
+                    </div>
+                    <div>
+                      <label htmlFor="subjects" className="block text-sm font-semibold text-gray-700 mb-2">Subject/Area of Need *</label>
                       <Input id="subjects" name="subjects" value={formData.subjects} onChange={handleChange} required className="w-full" placeholder="e.g., Mathematics, English, Science" disabled={isSubmitting} />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -127,18 +153,18 @@ export default function Contact() {
                         <Input id="age" name="age" type="number" value={formData.age} onChange={handleChange} required className="w-full" placeholder="e.g., 8" min="1" max="18" disabled={isSubmitting} />
                       </div>
                       <div>
-                        <label htmlFor="class" className="block text-sm font-semibold text-gray-700 mb-2">Class *</label>
+                        <label htmlFor="class" className="block text-sm font-semibold text-gray-700 mb-2">Grade *</label>
                         <Input id="class" name="class" value={formData.class} onChange={handleChange} required className="w-full" placeholder="e.g., Grade 3" disabled={isSubmitting} />
                       </div>
                     </div>
                     <div>
                       <label htmlFor="sex" className="block text-sm font-semibold text-gray-700 mb-2">Sex *</label>
-                      <select 
-                        id="sex" 
-                        name="sex" 
-                        value={formData.sex} 
-                        onChange={handleChange} 
-                        required 
+                      <select
+                        id="sex"
+                        name="sex"
+                        value={formData.sex}
+                        onChange={handleChange}
+                        required
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isSubmitting}
                       >
@@ -148,8 +174,59 @@ export default function Contact() {
                         <option value="Other">Other</option>
                       </select>
                     </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="country" className="block text-sm font-semibold text-gray-700 mb-2">Country of Residence *</label>
+                        <Input id="country" name="country" value={formData.country} onChange={handleChange} required className="w-full" placeholder="e.g., Nigeria" disabled={isSubmitting} />
+                      </div>
+                      <div>
+                        <label htmlFor="city" className="block text-sm font-semibold text-gray-700 mb-2">City of Residence *</label>
+                        <Input id="city" name="city" value={formData.city} onChange={handleChange} required className="w-full" placeholder="e.g., Lagos" disabled={isSubmitting} />
+                      </div>
+                    </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>
+                      <label htmlFor="commencementDate" className="block text-sm font-semibold text-gray-700 mb-2">Date of Commencement *</label>
+                      <Input id="commencementDate" name="commencementDate" type="date" value={formData.commencementDate} onChange={handleChange} required className="w-full" disabled={isSubmitting} />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Days Available for Tutoring *</label>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
+                          <label key={day} className="flex items-center gap-2 cursor-pointer p-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <input
+                              type="checkbox"
+                              name="daysAvailable"
+                              value={day}
+                              checked={formData.daysAvailable.includes(day)}
+                              onChange={handleChange}
+                              disabled={isSubmitting}
+                              className="w-4 h-4 text-[#1E40AF] border-gray-300 rounded focus:ring-[#1E40AF]"
+                            />
+                            <span className="text-sm text-gray-700">{day.slice(0, 3)}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="timeAvailable" className="block text-sm font-semibold text-gray-700 mb-2">Time Available *</label>
+                      <select
+                        id="timeAvailable"
+                        name="timeAvailable"
+                        value={formData.timeAvailable}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={isSubmitting}
+                      >
+                        <option value="">Select preferred time...</option>
+                        <option value="Morning (8AM - 12PM)">Morning (8AM - 12PM)</option>
+                        <option value="Afternoon (12PM - 4PM)">Afternoon (12PM - 4PM)</option>
+                        <option value="Evening (4PM - 8PM)">Evening (4PM - 8PM)</option>
+                        <option value="Flexible">Flexible</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">Inquiry Subject *</label>
                       <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="w-full" placeholder="What can we help you with?" disabled={isSubmitting} />
                     </div>
                     <div>

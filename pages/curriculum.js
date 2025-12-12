@@ -8,6 +8,11 @@ import { grade1CurriculumData } from "@/lib/grade1Curriculum";
 import { grade2CurriculumData } from "@/lib/grade2Curriculum";
 import { grade3CurriculumData } from "@/lib/grade3Curriculum";
 import { grade4CurriculumData } from "@/lib/grade4Curriculum";
+import { grade5CurriculumData } from "@/lib/grade5Curriculum";
+import { grade6CurriculumData } from "@/lib/grade6Curriculum";
+import { grade7CurriculumData } from "@/lib/grade7Curriculum";
+import { grade8CurriculumData } from "@/lib/grade8Curriculum";
+import { grade9CurriculumData } from "@/lib/grade9Curriculum";
 
 const gradeData = [
   {
@@ -144,6 +149,16 @@ export default function Curriculum() {
       data = grade3CurriculumData;
     } else if (grade.id === 'grade4') {
       data = grade4CurriculumData;
+    } else if (grade.id === 'grade5') {
+      data = grade5CurriculumData;
+    } else if (grade.id === 'grade6') {
+      data = grade6CurriculumData;
+    } else if (grade.id === 'grade7') {
+      data = grade7CurriculumData;
+    } else if (grade.id === 'grade8') {
+      data = grade8CurriculumData;
+    } else if (grade.id === 'grade9') {
+      data = grade9CurriculumData;
     }
     setCurrentCurriculumData(data);
 
@@ -497,7 +512,7 @@ export default function Curriculum() {
                   )}
 
                   <div className="mt-6 flex justify-center gap-3 pb-8">
-                    {(selectedGrade.id === "grade1" || selectedGrade.id === "grade2" || selectedGrade.id === "grade3" || selectedGrade.id === "grade4") && (
+                    {(selectedGrade.id === "grade1" || selectedGrade.id === "grade2" || selectedGrade.id === "grade3" || selectedGrade.id === "grade4" || selectedGrade.id === "grade5" || selectedGrade.id === "grade6" || selectedGrade.id === "grade7" || selectedGrade.id === "grade8" || selectedGrade.id === "grade9") && (
                       <Link href="/contact">
                         <Button
                           size="lg"
