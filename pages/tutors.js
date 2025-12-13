@@ -208,7 +208,7 @@ export default function Tutors() {
     },
     {
       name: "Ms. Joy Ijabiyi",
-      title: "History & International Studies Tutor",
+      title: "Elementary School Subjects Tutor",
       qualifications: "B.A. in History and International Studies",
       experience: "5 years of dedicated teaching experience.",
       expertise: [

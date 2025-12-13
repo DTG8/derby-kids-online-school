@@ -13,6 +13,8 @@ import { grade6CurriculumData } from "@/lib/grade6Curriculum";
 import { grade7CurriculumData } from "@/lib/grade7Curriculum";
 import { grade8CurriculumData } from "@/lib/grade8Curriculum";
 import { grade9CurriculumData } from "@/lib/grade9Curriculum";
+import { grade10CurriculumData } from "@/lib/grade10Curriculum";
+import { grade11CurriculumData } from "@/lib/grade11Curriculum";
 
 const gradeData = [
   {
@@ -159,6 +161,10 @@ export default function Curriculum() {
       data = grade8CurriculumData;
     } else if (grade.id === 'grade9') {
       data = grade9CurriculumData;
+    } else if (grade.id === 'grade10') {
+      data = grade10CurriculumData;
+    } else if (grade.id === 'grade11') {
+      data = grade11CurriculumData;
     }
     setCurrentCurriculumData(data);
 
@@ -274,7 +280,7 @@ export default function Curriculum() {
                 <div className={`h-32 bg-gradient-to-br ${grade.color} relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <BookOpen className="w-12 h-12 text-white/90 group-hover:scale-110 transition-transform" />
+                    <span className="text-2xl sm:text-3xl font-bold text-white/90 group-hover:scale-110 transition-transform text-center px-2">{grade.grade}</span>
                   </div>
                   <div className="absolute top-3 right-3">
                     <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
@@ -284,7 +290,6 @@ export default function Curriculum() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[#1E40AF] mb-2">{grade.grade}</h3>
                   <p className="text-sm text-gray-500 mb-3 font-medium">{grade.ageRange}</p>
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">
                     {grade.description}

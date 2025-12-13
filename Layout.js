@@ -33,12 +33,12 @@ export default function Layout({ children }) {
           <div className="flex items-center h-16 w-full gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform flex-shrink-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform flex-shrink-0">
                 <Image
                   src="/logo.jpeg"
                   alt="Derby Kids Logo"
-                  width={48}
-                  height={48}
+                  width={56}
+                  height={56}
                   className="w-full h-full object-cover"
                   priority
                 />
@@ -134,12 +134,12 @@ export default function Layout({ children }) {
             {/* Left Column - About Section */}
             <div className="flex-1 min-w-0">
               <div className="flex items-start gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="w-11 h-11 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
                     src="/logo.jpeg"
                     alt="Derby Kids Logo"
-                    width={40}
-                    height={40}
+                    width={44}
+                    height={44}
                     className="w-full h-full object-cover"
                   />
                 </div>
