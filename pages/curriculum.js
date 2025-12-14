@@ -15,6 +15,7 @@ import { grade8CurriculumData } from "@/lib/grade8Curriculum";
 import { grade9CurriculumData } from "@/lib/grade9Curriculum";
 import { grade10CurriculumData } from "@/lib/grade10Curriculum";
 import { grade11CurriculumData } from "@/lib/grade11Curriculum";
+import { grade12CurriculumData } from "@/lib/grade12Curriculum";
 
 const gradeData = [
   {
@@ -165,6 +166,8 @@ export default function Curriculum() {
       data = grade10CurriculumData;
     } else if (grade.id === 'grade11') {
       data = grade11CurriculumData;
+    } else if (grade.id === 'grade12') {
+      data = grade12CurriculumData;
     }
     setCurrentCurriculumData(data);
 
