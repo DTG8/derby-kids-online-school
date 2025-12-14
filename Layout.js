@@ -28,7 +28,7 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white sticky top-0 z-50 shadow-lg">
+      <header className="bg-gradient-to-r from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white sticky top-0 z-50 shadow-lg">
         <nav className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-16 w-full gap-4">
             {/* Logo */}
@@ -92,7 +92,7 @@ export default function Layout({ children }) {
 
           {/* Mobile Menu - Slides down from header */}
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-white/20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6]">
+            <div className="md:hidden border-t border-white/20 bg-gradient-to-r from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C]">
               <div className="px-4 py-4 space-y-2">
                 {navLinks.map((link) => {
                   const active = isActive(link.href);
@@ -128,7 +128,7 @@ export default function Layout({ children }) {
       <WhatsAppButton />
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-8">
+      <footer className="bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 lg:gap-12 mb-6">
             {/* Left Column - About Section */}
@@ -144,7 +144,7 @@ export default function Layout({ children }) {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-1">Derby Kids Online School</h3>
+                  <h3 className="text-lg font-bold mb-1 text-[#FBBF24]">Derby Kids Online School</h3>
                   <p className="text-xs text-blue-100">Global Online Learning Platform</p>
                 </div>
               </div>

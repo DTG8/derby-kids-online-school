@@ -87,7 +87,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <FloatingIcons />
-      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="relative bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
         </div>
@@ -106,7 +106,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100">
-                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">Send Us a Message</h2>
+                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent">Send Us a Message</h2>
                 <p className="text-gray-600 mb-8">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
                 {submitted ? (
                   <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-green-50 border-2 border-green-200 rounded-2xl p-8 text-center">
@@ -165,7 +165,7 @@ export default function Contact() {
                         value={formData.sex}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B2E4B] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isSubmitting}
                       >
                         <option value="">Select...</option>
@@ -200,7 +200,7 @@ export default function Contact() {
                               checked={formData.daysAvailable.includes(day)}
                               onChange={handleChange}
                               disabled={isSubmitting}
-                              className="w-4 h-4 text-[#1E40AF] border-gray-300 rounded focus:ring-[#1E40AF]"
+                              className="w-4 h-4 text-[#1B2E4B] border-gray-300 rounded focus:ring-[#1B2E4B]"
                             />
                             <span className="text-sm text-gray-700">{day.slice(0, 3)}</span>
                           </label>
@@ -215,7 +215,7 @@ export default function Contact() {
                         value={formData.timeAvailable}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B2E4B] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isSubmitting}
                       >
                         <option value="">Select preferred time...</option>
@@ -252,18 +252,18 @@ export default function Contact() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">Contact Information</h2>
+                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent">Contact Information</h2>
                 <p className="text-gray-600 text-lg mb-8">We&apos;re available to answer your questions and help you get started with Derby Kids Online School.</p>
               </div>
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: index * 0.1 }} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-xl flex items-center justify-center flex-shrink-0">
                         <info.icon className="w-6 h-6 text-[#FBBF24]" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-[#1E40AF] mb-1">{info.title}</h3>
+                        <h3 className="font-bold text-[#1B2E4B] mb-1">{info.title}</h3>
                         {info.link ? (
                           <a href={info.link} target={info.link.startsWith("http") ? "_blank" : undefined} rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined} className="text-gray-700 hover:text-[#F59E0B] transition-colors">
                             {info.content}

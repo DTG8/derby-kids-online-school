@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -25,7 +25,7 @@ const benefits = [
 export default function Home() {
   // Background slideshow state
   const backgrounds = [
-    { type: "gradient", value: "from-[#1E40AF] via-[#2563EB] to-[#3B82F6]" }, // Royal blue gradient
+    { type: "gradient", value: "from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C]" }, // Royal blue gradient
     { type: "image", value: "/confident.png" },
     { type: "image", value: "/kids.png" },
     { type: "image", value: "/teens.png" },
@@ -84,7 +84,7 @@ export default function Home() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/80 via-[#2563EB]/70 to-[#3B82F6]/80"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1B2E4B]/80 via-[#243B6A]/70 to-[#2D4A7C]/80"></div>
             </div>
           )}
         </div>
@@ -108,7 +108,7 @@ export default function Home() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/80 via-[#2563EB]/70 to-[#3B82F6]/80"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1B2E4B]/80 via-[#243B6A]/70 to-[#2D4A7C]/80"></div>
             </div>
           )}
         </motion.div>
@@ -135,10 +135,10 @@ export default function Home() {
                 <Link href="/courses" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    style={{ color: "#1E40AF" }}
-                    className="border-2 border-white bg-white !text-[#1E40AF] hover:bg-white/90 font-bold py-3 sm:py-4 md:py-6 px-4 sm:px-6 md:px-8 text-sm sm:text-base md:text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
+                    style={{ color: "#1B2E4B" }}
+                    className="border-2 border-white bg-white !text-[#1B2E4B] hover:bg-white/90 font-bold py-3 sm:py-4 md:py-6 px-4 sm:px-6 md:px-8 text-sm sm:text-base md:text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
                   >
-                    <span className="text-[#1E40AF]">Explore Courses</span>
+                    <span className="text-[#1B2E4B]">Explore Courses</span>
                   </Button>
                 </Link>
               </div>
@@ -170,7 +170,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-6 sm:p-8 lg:p-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-[#1E40AF]">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-[#1B2E4B]">
                   Learning Without Borders, Growing <span className="relative">
                     Beyond Limits
                     <span className="absolute bottom-0 left-0 w-full h-1 bg-[#F59E0B] -mt-1"></span>
@@ -191,7 +191,7 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
               Why Choose Derby Kids?
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
@@ -208,10 +208,10 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-2xl flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-[#FBBF24]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-[#1B2E4B] mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
@@ -223,7 +223,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent">
                 What You&apos;ll Get
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
@@ -253,7 +253,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
+              className="bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
             >
               <div className="flex items-center gap-3 mb-6">
                 <Star className="w-8 h-8 text-[#FBBF24]" />
@@ -282,7 +282,7 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white w-full relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
               Our Learning Environment
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
@@ -347,7 +347,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-[#1B2E4B] mb-2">{item.title}</h3>
                   <p className="text-gray-600 text-sm">{item.description}</p>
                 </div>
               </motion.div>
@@ -360,7 +360,7 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
               How It Works
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
@@ -423,11 +423,11 @@ export default function Home() {
                     className="object-cover"
                   />
                   <div className="absolute top-4 left-4 w-12 h-12 bg-[#FBBF24] rounded-full flex items-center justify-center">
-                    <span className="text-[#1E40AF] font-bold text-lg">{item.step}</span>
+                    <span className="text-[#1B2E4B] font-bold text-lg">{item.step}</span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-[#1B2E4B] mb-3">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
@@ -439,7 +439,7 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-[#1E40AF] px-4">What Parents Say</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-[#1B2E4B] px-4">What Parents Say</h2>
             <div className="w-24 h-1 bg-[#F59E0B] mx-auto mb-3 sm:mb-4"></div>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">Real stories from real families.</p>
           </motion.div>
@@ -479,11 +479,11 @@ export default function Home() {
                 </div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">&quot;{testimonial.quote}&quot;</p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-lg">{testimonial.initial}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-[#1E40AF]">{testimonial.name}</p>
+                    <p className="font-bold text-[#1B2E4B]">{testimonial.name}</p>
                     <p className="text-gray-500 text-sm">{testimonial.location}</p>
                   </div>
                 </div>
@@ -493,7 +493,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white w-full">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">Ready to Start Learning?</h2>
