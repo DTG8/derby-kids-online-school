@@ -235,7 +235,7 @@ export default function Tutors() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <FloatingIcons />
-      <section className="relative bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
         </div>
@@ -278,14 +278,14 @@ export default function Tutors() {
                       sizes="(min-width: 1024px) 33vw, 100vw"
                       className="object-cover object-[center_30%]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1B2E4B]/90 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1E40AF]/90 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <h3 className="text-lg font-bold leading-snug">{tutor.name}</h3>
                       <p className="text-blue-100 text-xs sm:text-sm">{tutor.title}</p>
                     </div>
                   </div>
                 ) : (
-                  <div className="bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] p-6 text-white">
+                  <div className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] p-6 text-white">
                     <div className="flex items-center gap-4 mb-2">
                       <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 border-2 border-white/30">
                         <span className="text-white font-bold text-xl">{tutor.avatar}</span>
@@ -300,26 +300,26 @@ export default function Tutors() {
 
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    <GraduationCap className="w-5 h-5 text-[#1B2E4B]" />
-                    <p className="text-sm font-semibold text-[#1B2E4B]">Qualifications</p>
+                    <GraduationCap className="w-5 h-5 text-[#1E40AF]" />
+                    <p className="text-sm font-semibold text-[#1E40AF]">Qualifications</p>
                   </div>
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">{tutor.qualifications}</p>
 
                   <div className="flex items-center gap-2 mb-4">
                     <Award className="w-5 h-5 text-[#F59E0B]" />
-                    <p className="text-sm font-semibold text-[#1B2E4B]">Experience</p>
+                    <p className="text-sm font-semibold text-[#1E40AF]">Experience</p>
                   </div>
                   <p className="text-gray-700 text-sm mb-4">{tutor.experience}</p>
 
                   <div className="flex items-center gap-2 mb-4">
                     <BookOpen className="w-5 h-5 text-[#F59E0B]" />
-                    <p className="text-sm font-semibold text-[#1B2E4B]">Expertise</p>
+                    <p className="text-sm font-semibold text-[#1E40AF]">Expertise</p>
                   </div>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {tutor.expertise.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1 bg-gradient-to-r from-[#1B2E4B]/10 to-[#243B6A]/10 rounded-full text-xs font-medium text-[#1B2E4B] border border-[#1B2E4B]/20"
+                        className="px-3 py-1 bg-gradient-to-r from-[#1E40AF]/10 to-[#2563EB]/10 rounded-full text-xs font-medium text-[#1E40AF] border border-[#1E40AF]/20"
                       >
                         {skill}
                       </span>
@@ -331,7 +331,7 @@ export default function Tutors() {
                   <div className="border-t border-gray-200 pt-4">
                     <div className="flex items-center gap-2 mb-3">
                       <Quote className="w-5 h-5 text-[#F59E0B]" />
-                      <p className="text-sm font-semibold text-[#1B2E4B]">
+                      <p className="text-sm font-semibold text-[#1E40AF]">
                         {tutor.quoteLabel || "Teaching Philosophy & Approach"}
                       </p>
                     </div>
@@ -363,7 +363,7 @@ export default function Tutors() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
+            className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
           >
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>

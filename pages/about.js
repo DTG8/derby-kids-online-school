@@ -31,7 +31,7 @@ export default function About() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <FloatingIcons />
-      <section className="relative bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
         </div>
@@ -60,12 +60,12 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-3xl overflow-hidden shadow-2xl relative p-5 lg:p-6"
+              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl overflow-hidden shadow-2xl relative p-5 lg:p-6"
             >
               <div className="flex flex-col lg:flex-row gap-5 items-start lg:items-center">
                 <div className="flex-1 flex flex-col">
                   <div className="w-10 h-10 bg-[#FBBF24] rounded-xl flex items-center justify-center mb-3">
-                    <Target className="w-5 h-5 text-[#1B2E4B]" />
+                    <Target className="w-5 h-5 text-[#1E40AF]" />
                   </div>
                   <h2 className="text-2xl font-bold mb-3 text-white">Our Mission</h2>
                   <p className="text-blue-100 text-sm leading-relaxed">
@@ -131,7 +131,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
               Our Story
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
@@ -187,7 +187,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
               Our Core Values
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
@@ -213,15 +213,15 @@ export default function About() {
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] opacity-60"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] opacity-60"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-[#FBBF24] rounded-2xl flex items-center justify-center relative z-10">
-                      <value.icon className="w-8 h-8 text-[#1B2E4B]" />
+                      <value.icon className="w-8 h-8 text-[#1E40AF]" />
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#1B2E4B] mb-3">{value.title}</h3>
+                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{value.title}</h3>
                   <p className="text-gray-600">{value.description}</p>
                 </div>
               </motion.div>

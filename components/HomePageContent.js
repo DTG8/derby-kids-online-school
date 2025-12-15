@@ -24,7 +24,7 @@ export default function HomePageContent() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-20 md:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F59E0B] rounded-full blur-3xl"></div>
@@ -48,10 +48,10 @@ export default function HomePageContent() {
                 <Link href="/courses">
                   <Button
                     size="lg"
-                    style={{ color: "#1B2E4B" }}
-                    className="border-2 border-white bg-white !text-[#1B2E4B] hover:bg-white/90 font-bold py-6 px-8 text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
+                    style={{ color: "#1E40AF" }}
+                    className="border-2 border-white bg-white !text-[#1E40AF] hover:bg-white/90 font-bold py-6 px-8 text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
                   >
-                    <span className="text-[#1B2E4B]">Explore Courses</span>
+                    <span className="text-[#1E40AF]">Explore Courses</span>
                   </Button>
                 </Link>
               </div>
@@ -68,7 +68,7 @@ export default function HomePageContent() {
                       priority
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#1B2E4B]/50 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#1E40AF]/50 via-transparent to-transparent"></div>
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export default function HomePageContent() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
               Why Choose Derby Kids?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -97,10 +97,10 @@ export default function HomePageContent() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-2xl flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-[#FBBF24]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1B2E4B] mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
@@ -112,7 +112,7 @@ export default function HomePageContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
                 What You&apos;ll Get
               </h2>
               <p className="text-xl text-gray-600 mb-8">
@@ -142,7 +142,7 @@ export default function HomePageContent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
+              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
             >
               <div className="flex items-center gap-3 mb-6">
                 <Star className="w-8 h-8 text-[#FBBF24]" />
@@ -167,7 +167,7 @@ export default function HomePageContent() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-r from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white">
+      <section className="py-20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Learning?</h2>

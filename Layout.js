@@ -28,12 +28,12 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white sticky top-0 z-50 shadow-lg">
+      <header className="bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white sticky top-0 z-50 shadow-lg">
         <nav className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-16 w-full gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform flex-shrink-0">
+              <div className="w-[45px] h-[45px] sm:w-[56px] sm:h-[56px] rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform flex-shrink-0">
                 <Image
                   src="/logo.jpeg"
                   alt="Derby Kids Logo"
@@ -92,7 +92,7 @@ export default function Layout({ children }) {
 
           {/* Mobile Menu - Slides down from header */}
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-white/20 bg-gradient-to-r from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C]">
+            <div className="md:hidden border-t border-white/20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6]">
               <div className="px-4 py-4 space-y-2">
                 {navLinks.map((link) => {
                   const active = isActive(link.href);
@@ -128,18 +128,18 @@ export default function Layout({ children }) {
       <WhatsAppButton />
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-8">
+      <footer className="bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 lg:gap-12 mb-6">
             {/* Left Column - About Section */}
             <div className="flex-1 min-w-0">
               <div className="flex items-start gap-3 mb-3">
-                <div className="w-11 h-11 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="w-[45px] h-[45px] rounded-lg overflow-hidden flex-shrink-0">
                   <Image
                     src="/logo.jpeg"
                     alt="Derby Kids Logo"
-                    width={44}
-                    height={44}
+                    width={45}
+                    height={45}
                     className="w-full h-full object-cover"
                   />
                 </div>

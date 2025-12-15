@@ -192,7 +192,7 @@ export default function Curriculum() {
       <FloatingIcons />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-16 sm:py-20 md:py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-16 sm:py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F59E0B] rounded-full blur-3xl"></div>
@@ -261,7 +261,7 @@ export default function Curriculum() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
               Our Curriculum by Grade
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -298,7 +298,7 @@ export default function Curriculum() {
                     {grade.description}
                   </p>
 
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#243B6A] group-hover:text-[#1B2E4B] transition-colors">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#2563EB] group-hover:text-[#1E40AF] transition-colors">
                     <span>View Curriculum</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -371,7 +371,7 @@ export default function Curriculum() {
                     <>
                       {/* International Alignments */}
                       <div className="mb-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-100">
-                        <h3 className="text-xl font-bold text-[#1B2E4B] mb-4 flex items-center gap-2">
+                        <h3 className="text-xl font-bold text-[#1E40AF] mb-4 flex items-center gap-2">
                           <Globe className="w-5 h-5" />
                           Aligned with International Standards
                         </h3>
@@ -399,7 +399,7 @@ export default function Curriculum() {
                               key={index}
                               onClick={() => setActiveTab(index)}
                               className={`px-6 py-3 font-semibold text-sm whitespace-nowrap transition-all ${activeTab === index
-                                ? "text-[#1B2E4B] border-b-2 border-[#1B2E4B]"
+                                ? "text-[#1E40AF] border-b-2 border-[#1E40AF]"
                                 : "text-gray-500 hover:text-gray-700"
                                 }`}
                             >
@@ -425,7 +425,7 @@ export default function Curriculum() {
                               <div className="flex items-center gap-3">
                                 <span className="text-3xl">{subject.icon}</span>
                                 <div>
-                                  <h4 className="text-xl font-bold text-[#1B2E4B]">{subject.name}</h4>
+                                  <h4 className="text-xl font-bold text-[#1E40AF]">{subject.name}</h4>
                                   {subject.subtitle && (
                                     <p className="text-sm text-gray-600 mt-1">{subject.subtitle}</p>
                                   )}
@@ -487,7 +487,7 @@ export default function Curriculum() {
                   ) : (
                     <>
                       {/* Default modal content for other grades */}
-                      <h3 className="text-2xl font-bold text-[#1B2E4B] mb-6">Core Subjects</h3>
+                      <h3 className="text-2xl font-bold text-[#1E40AF] mb-6">Core Subjects</h3>
 
                       <div className="grid sm:grid-cols-2 gap-4 mb-8">
                         {selectedGrade.subjects.map((subject, index) => (
@@ -495,7 +495,7 @@ export default function Curriculum() {
                             key={index}
                             className="flex items-center gap-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100"
                           >
-                            <div className="w-10 h-10 bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-lg flex items-center justify-center flex-shrink-0">
                               <Award className="w-5 h-5 text-white" />
                             </div>
                             <span className="font-semibold text-gray-800">{subject}</span>

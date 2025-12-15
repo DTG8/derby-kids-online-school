@@ -7,7 +7,7 @@ export default function FloatingIcons() {
     { Icon: Star, color: "#FBBF24", size: 28 },
     { Icon: Star, color: "#F59E0B", size: 26 },
     { Icon: Sun, color: "#FBBF24", size: 24 },
-    { Icon: GraduationCap, color: "#243B6A", size: 28 },
+    { Icon: GraduationCap, color: "#2563EB", size: 28 },
     { Icon: Cloud, color: "#93C5FD", size: 32 },
     { Icon: Star, color: "#FBBF24", size: 24 },
   ];

@@ -118,7 +118,7 @@ export default function Courses() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <FloatingIcons />
-      <section className="relative bg-gradient-to-br from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="relative bg-gradient-to-br from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
         </div>
@@ -149,7 +149,7 @@ export default function Courses() {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
               Core Academic Subjects
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -176,7 +176,7 @@ export default function Courses() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#1B2E4B] mb-2">{course.title}</h3>
+                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
                     <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
                   </div>
                 </motion.div>
@@ -192,7 +192,7 @@ export default function Courses() {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
               Exam Preparation Programs
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
@@ -219,7 +219,7 @@ export default function Courses() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-[#1B2E4B] mb-2">{course.title}</h3>
+                    <h3 className="text-lg font-bold text-[#1E40AF] mb-2">{course.title}</h3>
                     <p className="text-gray-600 text-sm">{course.description}</p>
                   </div>
                 </motion.div>
@@ -235,7 +235,7 @@ export default function Courses() {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
               Enrichment and Skill-Based Programs
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -262,7 +262,7 @@ export default function Courses() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#1B2E4B] mb-2">{course.title}</h3>
+                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
                     <p className="text-gray-600 text-sm">{course.description}</p>
                   </div>
                 </motion.div>
@@ -281,7 +281,7 @@ export default function Courses() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1B2E4B] to-[#243B6A] bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
                 What Makes Our Courses Special
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
@@ -314,7 +314,7 @@ export default function Courses() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#1B2E4B] to-[#243B6A] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
+              className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
             >
               <h3 className="text-3xl font-bold mb-6">Enrollment Information</h3>
               <div className="space-y-6 mb-8">
@@ -345,7 +345,7 @@ export default function Courses() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#1B2E4B] via-[#243B6A] to-[#2D4A7C] text-white w-full">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
