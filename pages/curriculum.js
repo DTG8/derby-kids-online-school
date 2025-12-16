@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, GraduationCap, Award, Users, CheckCircle, X, ChevronRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingIcons from "@/components/FloatingIcons";
+import { receptionCurriculumData } from "@/lib/receptionCurriculum";
 import { grade1CurriculumData } from "@/lib/grade1Curriculum";
 import { grade2CurriculumData } from "@/lib/grade2Curriculum";
 import { grade3CurriculumData } from "@/lib/grade3Curriculum";
@@ -21,10 +22,10 @@ const gradeData = [
   {
     id: "reception",
     grade: "Reception",
-    ageRange: "3-5 years",
+    ageRange: "4-5 years",
     description: "Foundation learning through play, exploration, and discovery",
     color: "from-pink-500 to-rose-500",
-    subjects: ["Phonics & Early Reading", "Number Sense", "Physical Development", "Creative Arts", "Social Skills"]
+    subjects: ["Literacy", "Numeracy", "Science & Discovery", "PSED", "Creative Art", "Motor Skills"]
   },
   {
     id: "grade1",
@@ -144,7 +145,9 @@ export default function Curriculum() {
     setSelectedGrade(grade);
     // Determine which curriculum data to use based on the selected grade
     let data = null;
-    if (grade.id === 'grade1') {
+    if (grade.id === 'reception') {
+      data = receptionCurriculumData;
+    } else if (grade.id === 'grade1') {
       data = grade1CurriculumData;
     } else if (grade.id === 'grade2') {
       data = grade2CurriculumData;
@@ -520,7 +523,7 @@ export default function Curriculum() {
                   )}
 
                   <div className="mt-6 flex justify-center gap-3 pb-8">
-                    {(selectedGrade.id === "grade1" || selectedGrade.id === "grade2" || selectedGrade.id === "grade3" || selectedGrade.id === "grade4" || selectedGrade.id === "grade5" || selectedGrade.id === "grade6" || selectedGrade.id === "grade7" || selectedGrade.id === "grade8" || selectedGrade.id === "grade9") && (
+                    {(selectedGrade.id === "reception" || selectedGrade.id === "grade1" || selectedGrade.id === "grade2" || selectedGrade.id === "grade3" || selectedGrade.id === "grade4" || selectedGrade.id === "grade5" || selectedGrade.id === "grade6" || selectedGrade.id === "grade7" || selectedGrade.id === "grade8" || selectedGrade.id === "grade9") && (
                       <Link href="/contact">
                         <Button
                           size="lg"
