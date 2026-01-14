@@ -3,29 +3,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Target, Eye, Heart, Users, Award, Lightbulb } from "lucide-react";
 import FloatingIcons from "@/components/FloatingIcons";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
   const values = [
-    {
-      icon: Heart,
-      title: "Passion for Learning",
-      description: "We believe every child deserves access to quality education that ignites their curiosity.",
-    },
-    {
-      icon: Users,
-      title: "Student-Centered",
-      description: "Our approach puts students at the heart of everything we do.",
-    },
-    {
-      icon: Award,
-      title: "Excellence",
-      description: "We strive for the highest standards in teaching and learning outcomes.",
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation",
-      description: "We embrace modern teaching methods and technology to enhance learning.",
-    },
+    { icon: Heart, titleKey: "about.values.passion", descKey: "about.values.passionDesc" },
+    { icon: Users, titleKey: "about.values.studentCentered", descKey: "about.values.studentCenteredDesc" },
+    { icon: Award, titleKey: "about.values.excellence", descKey: "about.values.excellenceDesc" },
+    { icon: Lightbulb, titleKey: "about.values.innovation", descKey: "about.values.innovationDesc" },
   ];
 
   return (
@@ -43,10 +30,10 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">About Us</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">{t('about.hero.title')}</h1>
             <div className="w-24 h-1 bg-[#FBBF24] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto px-4">
-              Transforming education through innovation, dedication, and a commitment to excellence
+              {t('about.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -67,12 +54,9 @@ export default function About() {
                   <div className="w-10 h-10 bg-[#FBBF24] rounded-xl flex items-center justify-center mb-3">
                     <Target className="w-5 h-5 text-[#1E40AF]" />
                   </div>
-                  <h2 className="text-2xl font-bold mb-3 text-white">Our Mission</h2>
+                  <h2 className="text-2xl font-bold mb-3 text-white">{t('about.mission.title')}</h2>
                   <p className="text-blue-100 text-sm leading-relaxed">
-                    To provide accessible, high-quality online education that empowers children
-                    to reach their full potential. We strive to create an engaging learning
-                    environment where every student can thrive, regardless of their location
-                    or circumstances.
+                    {t('about.mission.description')}
                   </p>
                 </div>
                 <div className="flex-shrink-0 w-full lg:w-64 h-64 relative rounded-xl overflow-hidden shadow-lg">
@@ -99,12 +83,9 @@ export default function About() {
                   <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-3">
                     <Eye className="w-5 h-5 text-[#F59E0B]" />
                   </div>
-                  <h2 className="text-2xl font-bold mb-3 text-white">Our Vision</h2>
+                  <h2 className="text-2xl font-bold mb-3 text-white">{t('about.vision.title')}</h2>
                   <p className="text-amber-100 text-sm leading-relaxed">
-                    To become the leading online education platform for children worldwide,
-                    recognized for our innovative teaching methods, dedicated educators, and
-                    outstanding student outcomes. We envision a future where quality education
-                    knows no boundaries.
+                    {t('about.vision.description')}
                   </p>
                 </div>
                 <div className="flex-shrink-0 w-full lg:w-64 h-64 relative rounded-xl overflow-hidden shadow-lg">
@@ -132,13 +113,10 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Our Story
+              {t('about.story.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-              Derby Kids Online School was founded with a simple yet powerful vision:
-              to make quality education accessible to every child, everywhere. What started
-              as a small initiative has grown into a thriving online learning community,
-              serving thousands of students across the globe.
+              {t('about.story.description1')}
             </p>
           </motion.div>
 
@@ -161,16 +139,10 @@ export default function About() {
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  Our team consists of experienced educators, technology experts, and passionate
-                  individuals who believe in the transformative power of education. We combine
-                  traditional teaching excellence with modern technology to create an engaging,
-                  effective learning experience.
+                  {t('about.story.description2')}
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Every day, we work tirelessly to ensure that our students receive personalized
-                  attention, comprehensive curriculum coverage, and the support they need to
-                  succeed academically and personally. Our commitment extends beyond academics
-                  to nurturing well-rounded individuals prepared for the challenges of tomorrow.
+                  {t('about.story.description3')}
                 </p>
               </div>
             </div>
@@ -188,10 +160,10 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Our Core Values
+              {t('about.values.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              The principles that guide everything we do
+              {t('about.values.subtitle')}
             </p>
           </motion.div>
 
@@ -208,7 +180,7 @@ export default function About() {
                 <div className="relative h-40 overflow-hidden">
                   <Image
                     src={["/kids.png", "/hero.jpeg", "/books.jpeg", "/teens.png"][index]}
-                    alt={value.title}
+                    alt={t(value.titleKey)}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -221,8 +193,8 @@ export default function About() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{t(value.titleKey)}</h3>
+                  <p className="text-gray-600">{t(value.descKey)}</p>
                 </div>
               </motion.div>
             ))}

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, GraduationCap, Award, Users, CheckCircle, X, ChevronRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingIcons from "@/components/FloatingIcons";
+import { useLanguage } from "@/lib/LanguageContext";
 import { receptionCurriculumData } from "@/lib/receptionCurriculum";
 import { grade1CurriculumData } from "@/lib/grade1Curriculum";
 import { grade2CurriculumData } from "@/lib/grade2Curriculum";
@@ -18,169 +19,61 @@ import { grade10CurriculumData } from "@/lib/grade10Curriculum";
 import { grade11CurriculumData } from "@/lib/grade11Curriculum";
 import { grade12CurriculumData } from "@/lib/grade12Curriculum";
 
-const gradeData = [
-  {
-    id: "reception",
-    grade: "Reception",
-    ageRange: "4-5 years",
-    description: "Foundation learning through play, exploration, and discovery",
-    color: "from-pink-500 to-rose-500",
-    subjects: ["Literacy", "Numeracy", "Science & Discovery", "PSED", "Creative Art", "Motor Skills"]
-  },
-  {
-    id: "grade1",
-    grade: "Grade 1",
-    ageRange: "6-7 years",
-    description: "Building core literacy and numeracy foundations",
-    color: "from-blue-500 to-indigo-500",
-    subjects: ["Reading & Writing", "Mathematics", "Science", "Social Studies", "Arts & Creativity"]
-  },
-  {
-    id: "grade2",
-    grade: "Grade 2",
-    ageRange: "7-8 years",
-    description: "Developing reading fluency and mathematical reasoning",
-    color: "from-purple-500 to-violet-500",
-    subjects: ["English Language", "Mathematics", "Science Exploration", "History & Geography", "Creative Expression"]
-  },
-  {
-    id: "grade3",
-    grade: "Grade 3",
-    ageRange: "8-9 years",
-    description: "Expanding knowledge and critical thinking skills",
-    color: "from-cyan-500 to-teal-500",
-    subjects: ["Advanced Reading", "Mathematics", "Science & Technology", "Social Studies", "Arts & Music"]
-  },
-  {
-    id: "grade4",
-    grade: "Grade 4",
-    ageRange: "9-10 years",
-    description: "Deepening understanding across all subject areas",
-    color: "from-green-500 to-emerald-500",
-    subjects: ["Literature & Writing", "Mathematics", "Scientific Inquiry", "World Studies", "Creative Arts"]
-  },
-  {
-    id: "grade5",
-    grade: "Grade 5",
-    ageRange: "10-11 years",
-    description: "Preparing for middle school academic challenges",
-    color: "from-amber-500 to-orange-500",
-    subjects: ["English & Literature", "Advanced Mathematics", "Science", "History & Geography", "Technology & Arts"]
-  },
-  {
-    id: "grade6",
-    grade: "Grade 6",
-    ageRange: "11-12 years",
-    description: "Middle school foundation with independent learning",
-    color: "from-red-500 to-pink-500",
-    subjects: ["Language Arts", "Pre-Algebra", "Life & Physical Science", "World History", "Digital Literacy"]
-  },
-  {
-    id: "grade7",
-    grade: "Grade 7",
-    ageRange: "12-13 years",
-    description: "Advanced concepts and analytical thinking",
-    color: "from-indigo-600 to-purple-600",
-    subjects: ["Advanced English", "Algebra", "Biology & Chemistry", "Geography & Civics", "Computer Science"]
-  },
-  {
-    id: "grade8",
-    grade: "Grade 8",
-    ageRange: "13-14 years",
-    description: "Preparing for high school rigor and excellence",
-    color: "from-blue-600 to-cyan-600",
-    subjects: ["Literature & Composition", "Geometry", "Physical Science", "World Civilizations", "Technology"]
-  },
-  {
-    id: "grade9",
-    grade: "Grade 9",
-    ageRange: "14-15 years",
-    description: "High school foundation with college preparation focus",
-    color: "from-violet-600 to-fuchsia-600",
-    subjects: ["English Literature", "Algebra II", "Biology", "World History", "Foreign Language"]
-  },
-  {
-    id: "grade10",
-    grade: "Grade 10",
-    ageRange: "15-16 years",
-    description: "Core subjects with elective specialization",
-    color: "from-teal-600 to-green-600",
-    subjects: ["Advanced Literature", "Pre-Calculus", "Chemistry", "Modern History", "Computer Programming"]
-  },
-  {
-    id: "grade11",
-    grade: "Grade 11",
-    ageRange: "16-17 years",
-    description: "College-preparatory curriculum with advanced courses",
-    color: "from-orange-600 to-red-600",
-    subjects: ["AP English", "Calculus", "Physics", "Government & Economics", "Advanced Sciences"]
-  },
-  {
-    id: "grade12",
-    grade: "Grade 12",
-    ageRange: "17-18 years",
-    description: "Senior year excellence and college readiness",
-    color: "from-rose-600 to-pink-600",
-    subjects: ["College-Level English", "Advanced Mathematics", "Advanced Sciences", "Electives", "College Prep"]
-  }
-];
-
-const curriculumFeatures = [
-  "Strong reading, writing & communication skills",
-  "Mathematical reasoning and problem-solving",
-  "Scientific curiosity and real-world understanding",
-  "Digital literacy and modern technology skills",
-  "Art, creativity, music & performance expression",
-  "Confidence, leadership & character development"
-];
-
 export default function Curriculum() {
+  const { t } = useLanguage();
   const [selectedGrade, setSelectedGrade] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [currentCurriculumData, setCurrentCurriculumData] = useState(null);
   const [activeTerm, setActiveTerm] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const gradeData = [
+    { id: "reception", gradeKey: "curriculum.gradeData.reception.grade", ageRangeKey: "curriculum.gradeData.reception.ageRange", descKey: "curriculum.gradeData.reception.description", color: "from-pink-500 to-rose-500", subjects: ["Literacy", "Numeracy", "Science & Discovery", "PSED", "Creative Art", "Motor Skills"] },
+    { id: "grade1", gradeKey: "curriculum.gradeData.grade1.grade", ageRangeKey: "curriculum.gradeData.grade1.ageRange", descKey: "curriculum.gradeData.grade1.description", color: "from-blue-500 to-indigo-500", subjects: ["Reading & Writing", "Mathematics", "Science", "Social Studies", "Arts & Creativity"] },
+    { id: "grade2", gradeKey: "curriculum.gradeData.grade2.grade", ageRangeKey: "curriculum.gradeData.grade2.ageRange", descKey: "curriculum.gradeData.grade2.description", color: "from-purple-500 to-violet-500", subjects: ["English Language", "Mathematics", "Science Exploration", "History & Geography", "Creative Expression"] },
+    { id: "grade3", gradeKey: "curriculum.gradeData.grade3.grade", ageRangeKey: "curriculum.gradeData.grade3.ageRange", descKey: "curriculum.gradeData.grade3.description", color: "from-cyan-500 to-teal-500", subjects: ["Advanced Reading", "Mathematics", "Science & Technology", "Social Studies", "Arts & Music"] },
+    { id: "grade4", gradeKey: "curriculum.gradeData.grade4.grade", ageRangeKey: "curriculum.gradeData.grade4.ageRange", descKey: "curriculum.gradeData.grade4.description", color: "from-green-500 to-emerald-500", subjects: ["Literature & Writing", "Mathematics", "Scientific Inquiry", "World Studies", "Creative Arts"] },
+    { id: "grade5", gradeKey: "curriculum.gradeData.grade5.grade", ageRangeKey: "curriculum.gradeData.grade5.ageRange", descKey: "curriculum.gradeData.grade5.description", color: "from-amber-500 to-orange-500", subjects: ["English & Literature", "Advanced Mathematics", "Science", "History & Geography", "Technology & Arts"] },
+    { id: "grade6", gradeKey: "curriculum.gradeData.grade6.grade", ageRangeKey: "curriculum.gradeData.grade6.ageRange", descKey: "curriculum.gradeData.grade6.description", color: "from-red-500 to-pink-500", subjects: ["Language Arts", "Pre-Algebra", "Life & Physical Science", "World History", "Digital Literacy"] },
+    { id: "grade7", gradeKey: "curriculum.gradeData.grade7.grade", ageRangeKey: "curriculum.gradeData.grade7.ageRange", descKey: "curriculum.gradeData.grade7.description", color: "from-indigo-600 to-purple-600", subjects: ["Advanced English", "Algebra", "Biology & Chemistry", "Geography & Civics", "Computer Science"] },
+    { id: "grade8", gradeKey: "curriculum.gradeData.grade8.grade", ageRangeKey: "curriculum.gradeData.grade8.ageRange", descKey: "curriculum.gradeData.grade8.description", color: "from-blue-600 to-cyan-600", subjects: ["Literature & Composition", "Geometry", "Physical Science", "World Civilizations", "Technology"] },
+    { id: "grade9", gradeKey: "curriculum.gradeData.grade9.grade", ageRangeKey: "curriculum.gradeData.grade9.ageRange", descKey: "curriculum.gradeData.grade9.description", color: "from-violet-600 to-fuchsia-600", subjects: ["English Literature", "Algebra II", "Biology", "World History", "Foreign Language"] },
+    { id: "grade10", gradeKey: "curriculum.gradeData.grade10.grade", ageRangeKey: "curriculum.gradeData.grade10.ageRange", descKey: "curriculum.gradeData.grade10.description", color: "from-teal-600 to-green-600", subjects: ["Advanced Literature", "Pre-Calculus", "Chemistry", "Modern History", "Computer Programming"] },
+    { id: "grade11", gradeKey: "curriculum.gradeData.grade11.grade", ageRangeKey: "curriculum.gradeData.grade11.ageRange", descKey: "curriculum.gradeData.grade11.description", color: "from-orange-600 to-red-600", subjects: ["AP English", "Calculus", "Physics", "Government & Economics", "Advanced Sciences"] },
+    { id: "grade12", gradeKey: "curriculum.gradeData.grade12.grade", ageRangeKey: "curriculum.gradeData.grade12.ageRange", descKey: "curriculum.gradeData.grade12.description", color: "from-rose-600 to-pink-600", subjects: ["College-Level English", "Advanced Mathematics", "Advanced Sciences", "Electives", "College Prep"] }
+  ];
+
+  const curriculumFeatureKeys = [
+    "curriculum.hero.feature1",
+    "curriculum.hero.feature2",
+    "curriculum.hero.feature3",
+    "curriculum.hero.feature4",
+    "curriculum.hero.feature5",
+    "curriculum.hero.feature6"
+  ];
+
   const openModal = (grade) => {
     setSelectedGrade(grade);
-    // Determine which curriculum data to use based on the selected grade
     let data = null;
-    if (grade.id === 'reception') {
-      data = receptionCurriculumData;
-    } else if (grade.id === 'grade1') {
-      data = grade1CurriculumData;
-    } else if (grade.id === 'grade2') {
-      data = grade2CurriculumData;
-    } else if (grade.id === 'grade3') {
-      data = grade3CurriculumData;
-    } else if (grade.id === 'grade4') {
-      data = grade4CurriculumData;
-    } else if (grade.id === 'grade5') {
-      data = grade5CurriculumData;
-    } else if (grade.id === 'grade6') {
-      data = grade6CurriculumData;
-    } else if (grade.id === 'grade7') {
-      data = grade7CurriculumData;
-    } else if (grade.id === 'grade8') {
-      data = grade8CurriculumData;
-    } else if (grade.id === 'grade9') {
-      data = grade9CurriculumData;
-    } else if (grade.id === 'grade10') {
-      data = grade10CurriculumData;
-    } else if (grade.id === 'grade11') {
-      data = grade11CurriculumData;
-    } else if (grade.id === 'grade12') {
-      data = grade12CurriculumData;
-    }
+    if (grade.id === 'reception') data = receptionCurriculumData;
+    else if (grade.id === 'grade1') data = grade1CurriculumData;
+    else if (grade.id === 'grade2') data = grade2CurriculumData;
+    else if (grade.id === 'grade3') data = grade3CurriculumData;
+    else if (grade.id === 'grade4') data = grade4CurriculumData;
+    else if (grade.id === 'grade5') data = grade5CurriculumData;
+    else if (grade.id === 'grade6') data = grade6CurriculumData;
+    else if (grade.id === 'grade7') data = grade7CurriculumData;
+    else if (grade.id === 'grade8') data = grade8CurriculumData;
+    else if (grade.id === 'grade9') data = grade9CurriculumData;
+    else if (grade.id === 'grade10') data = grade10CurriculumData;
+    else if (grade.id === 'grade11') data = grade11CurriculumData;
+    else if (grade.id === 'grade12') data = grade12CurriculumData;
     setCurrentCurriculumData(data);
-
-    // Default to Term 1 if data exists, otherwise null
     if (data && data.terms && data.terms.length > 0) {
       setActiveTerm(data.terms[0].term);
     } else {
       setActiveTerm(null);
     }
-
     setIsModalOpen(true);
   };
 
@@ -210,26 +103,24 @@ export default function Curriculum() {
           >
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-full px-6 py-3 mb-6">
               <GraduationCap className="w-6 h-6 text-[#FBBF24]" />
-              <span className="text-sm font-semibold">World-Class Education</span>
+              <span className="text-sm font-semibold">{t('curriculum.hero.badge')}</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Welcome to <span className="text-[#FBBF24]">Derby Kids</span> Online School
+              {t('curriculum.hero.title')}
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Where children learn with joy, think deeply, and grow confidently into well-rounded global citizens.
+              {t('curriculum.hero.subtitle')}
             </p>
 
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 sm:p-8 md:p-10 max-w-5xl mx-auto border border-white/20 mb-8">
               <p className="text-base sm:text-lg text-blue-50 leading-relaxed mb-6">
-                Our curriculum blends the best of the <strong className="text-[#FBBF24]">British National Curriculum</strong>,
-                <strong className="text-[#FBBF24]"> American Common Core</strong>, and
-                <strong className="text-[#FBBF24]"> Cambridge International Standards</strong>, ensuring your child can transition academically anywhere in the world.
+                {t('curriculum.hero.description')}
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {curriculumFeatures.map((feature, index) => (
+                {curriculumFeatureKeys.map((key, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -238,24 +129,24 @@ export default function Curriculum() {
                     className="flex items-start gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-1" />
-                    <p className="text-sm sm:text-base text-left text-blue-50">{feature}</p>
+                    <p className="text-sm sm:text-base text-left text-blue-50">{t(key)}</p>
                   </motion.div>
                 ))}
               </div>
             </div>
 
             <p className="text-xl sm:text-2xl font-semibold text-[#FBBF24] mb-2">
-              Every lesson is interactive, engaging, and personalised for success.
+              {t('curriculum.hero.tagline')}
             </p>
             <p className="text-base sm:text-lg text-blue-100">
-              Derby Kids Online School — <em>preparing children for life, not just for exams.</em>
+              {t('curriculum.hero.motto')}
             </p>
           </motion.div>
-        </div >
-      </section >
+        </div>
+      </section>
 
       {/* Grade Cards Section */}
-      < section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white" >
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -265,10 +156,10 @@ export default function Curriculum() {
             className="text-center mb-12 sm:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
-              Our Curriculum by Grade
+              {t('curriculum.grades.title')}
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              From Early Years to Grade 12 — carefully structured learning paths for every stage
+              {t('curriculum.grades.subtitle')}
             </p>
           </motion.div>
 
@@ -286,7 +177,7 @@ export default function Curriculum() {
                 <div className={`h-32 bg-gradient-to-br ${grade.color} relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-2xl sm:text-3xl font-bold text-white/90 group-hover:scale-110 transition-transform text-center px-2">{grade.grade}</span>
+                    <span className="text-2xl sm:text-3xl font-bold text-white/90 group-hover:scale-110 transition-transform text-center px-2">{t(grade.gradeKey)}</span>
                   </div>
                   <div className="absolute top-3 right-3">
                     <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
@@ -296,13 +187,13 @@ export default function Curriculum() {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-sm text-gray-500 mb-3 font-medium">{grade.ageRange}</p>
+                  <p className="text-sm text-gray-500 mb-3 font-medium">{t(grade.ageRangeKey)}</p>
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                    {grade.description}
+                    {t(grade.descKey)}
                   </p>
 
                   <div className="flex items-center gap-2 text-sm font-semibold text-[#2563EB] group-hover:text-[#1E40AF] transition-colors">
-                    <span>View Curriculum</span>
+                    <span>{t('curriculum.grades.viewCurriculum')}</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -310,10 +201,10 @@ export default function Curriculum() {
             ))}
           </div>
         </div>
-      </section >
+      </section>
 
       {/* Modal - Fullscreen Page Experience */}
-      < AnimatePresence >
+      <AnimatePresence>
         {selectedGrade && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -338,7 +229,7 @@ export default function Curriculum() {
                       className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-colors"
                     >
                       <ChevronRight className="w-5 h-5 rotate-180" />
-                      <span className="font-semibold">Back to Grades</span>
+                      <span className="font-semibold">{t('curriculum.modal.backButton')}</span>
                     </button>
 
                     {/* Title */}
@@ -347,8 +238,8 @@ export default function Curriculum() {
                         <GraduationCap className="w-6 h-6" />
                       </div>
                       <div className="text-right">
-                        <h1 className="text-2xl font-bold">{selectedGrade.grade}</h1>
-                        <p className="text-sm text-blue-100">{selectedGrade.ageRange}</p>
+                        <h1 className="text-2xl font-bold">{t(selectedGrade.gradeKey)}</h1>
+                        <p className="text-sm text-blue-100">{t(selectedGrade.ageRangeKey)}</p>
                       </div>
                     </div>
 
@@ -363,7 +254,7 @@ export default function Curriculum() {
                   </div>
 
                   {/* Description */}
-                  <p className="mt-4 text-blue-50 max-w-4xl">{selectedGrade.description}</p>
+                  <p className="mt-4 text-blue-50 max-w-4xl">{t(selectedGrade.descKey)}</p>
                 </div>
               </div>
 
@@ -376,7 +267,7 @@ export default function Curriculum() {
                       <div className="mb-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-100">
                         <h3 className="text-xl font-bold text-[#1E40AF] mb-4 flex items-center gap-2">
                           <Globe className="w-5 h-5" />
-                          Aligned with International Standards
+                          {t('curriculum.modal.alignmentTitle')}
                         </h3>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {currentCurriculumData.alignments.map((alignment, index) => (
@@ -441,18 +332,18 @@ export default function Curriculum() {
                               <table className="w-full text-sm">
                                 <thead className="bg-gray-50 border-b border-gray-200">
                                   <tr>
-                                    <th className="px-4 py-3 text-left font-semibold text-gray-700 w-16">Week</th>
+                                    <th className="px-4 py-3 text-left font-semibold text-gray-700 w-16">{t('curriculum.modal.weekHeader')}</th>
                                     {subject.weeklyPlan[0].objective !== undefined ? (
                                       <>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Objective</th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Topics</th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Activities</th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Assessment</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">{t('curriculum.modal.objectiveHeader')}</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">{t('curriculum.modal.topicsHeader')}</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">{t('curriculum.modal.activitiesHeader')}</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">{t('curriculum.modal.assessmentHeader')}</th>
                                       </>
                                     ) : (
                                       <>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Focus</th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">Activity</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">{t('curriculum.modal.focusHeader')}</th>
+                                        <th className="px-4 py-3 text-left font-semibold text-gray-700">{t('curriculum.modal.activityHeader')}</th>
                                       </>
                                     )}
                                   </tr>
@@ -490,7 +381,7 @@ export default function Curriculum() {
                   ) : (
                     <>
                       {/* Default modal content for other grades */}
-                      <h3 className="text-2xl font-bold text-[#1E40AF] mb-6">Core Subjects</h3>
+                      <h3 className="text-2xl font-bold text-[#1E40AF] mb-6">{t('curriculum.modal.coreSubjects')}</h3>
 
                       <div className="grid sm:grid-cols-2 gap-4 mb-8">
                         {selectedGrade.subjects.map((subject, index) => (
@@ -509,14 +400,13 @@ export default function Curriculum() {
                       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
                         <h4 className="text-lg font-bold text-[#D97706] mb-3 flex items-center gap-2">
                           <Users className="w-5 h-5" />
-                          Learning Outcomes
+                          {t('curriculum.modal.learningOutcomes')}
                         </h4>
                         <p className="text-gray-700 leading-relaxed mb-4">
-                          Students in {selectedGrade.grade} will develop comprehensive skills across all subject areas,
-                          building on previous knowledge while preparing for the next academic level.
+                          {t('curriculum.modal.learningOutcomesDesc').replace('{grade}', t(selectedGrade.gradeKey))}
                         </p>
                         <p className="text-gray-600 text-sm italic">
-                          Detailed curriculum breakdown, lesson plans, and learning objectives are provided to enrolled families.
+                          {t('curriculum.modal.learningOutcomesNote')}
                         </p>
                       </div>
                     </>
@@ -529,7 +419,7 @@ export default function Curriculum() {
                           size="lg"
                           className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 px-8 shadow-xl"
                         >
-                          Enroll Now
+                          {t('curriculum.modal.enrollButton')}
                         </Button>
                       </Link>
                     )}
@@ -538,7 +428,7 @@ export default function Curriculum() {
                       className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-4 px-8 shadow-xl"
                       onClick={closeModal}
                     >
-                      Close
+                      {t('curriculum.modal.closeButton')}
                     </Button>
                   </div>
                 </div>
@@ -546,7 +436,7 @@ export default function Curriculum() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence >
-    </div >
+      </AnimatePresence>
+    </div>
   );
 }

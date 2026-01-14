@@ -3,8 +3,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { GraduationCap, Award, BookOpen, Users, Quote } from "lucide-react";
 import FloatingIcons from "@/components/FloatingIcons";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Tutors() {
+  const { t } = useLanguage();
+
   const tutors = [
     {
       name: "Mrs. Olukemi Kehinde",
@@ -247,10 +250,10 @@ export default function Tutors() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">Our Expert Tutors</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">{t('tutors.hero.title')}</h1>
             <div className="w-24 h-1 bg-[#FBBF24] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto px-4">
-              Meet our team of qualified, experienced, and passionate educators dedicated to your child's success
+              {t('tutors.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -301,19 +304,19 @@ export default function Tutors() {
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <GraduationCap className="w-5 h-5 text-[#1E40AF]" />
-                    <p className="text-sm font-semibold text-[#1E40AF]">Qualifications</p>
+                    <p className="text-sm font-semibold text-[#1E40AF]">{t('tutors.labels.qualifications')}</p>
                   </div>
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">{tutor.qualifications}</p>
 
                   <div className="flex items-center gap-2 mb-4">
                     <Award className="w-5 h-5 text-[#F59E0B]" />
-                    <p className="text-sm font-semibold text-[#1E40AF]">Experience</p>
+                    <p className="text-sm font-semibold text-[#1E40AF]">{t('tutors.labels.experience')}</p>
                   </div>
                   <p className="text-gray-700 text-sm mb-4">{tutor.experience}</p>
 
                   <div className="flex items-center gap-2 mb-4">
                     <BookOpen className="w-5 h-5 text-[#F59E0B]" />
-                    <p className="text-sm font-semibold text-[#1E40AF]">Expertise</p>
+                    <p className="text-sm font-semibold text-[#1E40AF]">{t('tutors.labels.expertise')}</p>
                   </div>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {tutor.expertise.map((skill, skillIndex) => (
@@ -332,7 +335,7 @@ export default function Tutors() {
                     <div className="flex items-center gap-2 mb-3">
                       <Quote className="w-5 h-5 text-[#F59E0B]" />
                       <p className="text-sm font-semibold text-[#1E40AF]">
-                        {tutor.quoteLabel || "Teaching Philosophy & Approach"}
+                        {t('tutors.labels.teachingPhilosophy')}
                       </p>
                     </div>
                     <div className="space-y-3">
@@ -369,33 +372,33 @@ export default function Tutors() {
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <Users className="w-10 h-10 text-[#FBBF24]" />
-                  <h2 className="text-3xl font-bold">Join Our Team</h2>
+                  <h2 className="text-3xl font-bold">{t('tutors.joinTeam.title')}</h2>
                 </div>
                 <p className="text-blue-100 text-lg leading-relaxed mb-6">
-                  Are you a passionate educator looking to make a difference? We're always looking for qualified, experienced tutors to join our team and help shape the future of online education.
+                  {t('tutors.joinTeam.description1')}
                 </p>
                 <p className="text-blue-100 text-lg leading-relaxed">
-                  If you're dedicated to student success and excited about online teaching, we'd love to hear from you!
+                  {t('tutors.joinTeam.description2')}
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                <h3 className="text-xl font-bold mb-4">Requirements:</h3>
+                <h3 className="text-xl font-bold mb-4">{t('tutors.joinTeam.requirementsTitle')}</h3>
                 <ul className="space-y-2 text-blue-100">
                   <li className="flex items-start gap-2">
                     <span className="text-[#FBBF24]">✓</span>
-                    <span>Relevant teaching qualifications and certifications</span>
+                    <span>{t('tutors.joinTeam.requirement1')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#FBBF24]">✓</span>
-                    <span>Minimum 5 years of teaching experience</span>
+                    <span>{t('tutors.joinTeam.requirement2')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#FBBF24]">✓</span>
-                    <span>Strong communication and interpersonal skills</span>
+                    <span>{t('tutors.joinTeam.requirement3')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#FBBF24]">✓</span>
-                    <span>Passion for online education and student success</span>
+                    <span>{t('tutors.joinTeam.requirement4')}</span>
                   </li>
                 </ul>
               </div>
@@ -406,4 +409,3 @@ export default function Tutors() {
     </div>
   );
 }
-

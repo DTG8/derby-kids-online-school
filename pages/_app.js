@@ -3,6 +3,7 @@ import Head from 'next/head'
 import '@/styles/globals.css'
 import Layout from '@/Layout'
 import SplashScreen from '@/components/SplashScreen'
+import { LanguageProvider } from '@/lib/LanguageContext'
 
 export default function App({ Component, pageProps }) {
   const [showSplash, setShowSplash] = useState(true);
@@ -27,7 +28,7 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <meta name="description" content="Derby Kids Online School - Quality online education for children worldwide" />
@@ -43,6 +44,6 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       </div>
-    </>
+    </LanguageProvider>
   )
 }

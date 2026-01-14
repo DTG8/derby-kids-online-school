@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { Mail, Phone, Menu, X } from "lucide-react";
+import { Mail, Phone, Menu, X, Globe } from "lucide-react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Layout({ children }) {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, changeLanguage, t } = useLanguage();
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Courses", href: "/courses" },
-    { name: "Curriculum", href: "/curriculum" },
-    { name: "Tutors", href: "/tutors" },
+    { name: t('nav.home'), href: "/" },
+    { name: t('nav.about'), href: "/about" },
+    { name: t('nav.courses'), href: "/courses" },
+    { name: t('nav.curriculum'), href: "/curriculum" },
+    { name: t('nav.tutors'), href: "/tutors" },
   ];
 
   const isActive = (href) => {
@@ -71,9 +73,18 @@ export default function Layout({ children }) {
               })}
               <Link href="/contact">
                 <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-2 px-4 sm:px-6 text-sm sm:text-base shadow-xl hover:shadow-2xl whitespace-nowrap transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-0">
-                  Enroll Now
+                  {t('nav.enrollNow')}
                 </Button>
               </Link>
+              {/* Language Toggle */}
+              <button
+                onClick={() => changeLanguage(language === 'en' ? 'nl' : 'en')}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-colors focus:outline-none focus:ring-0"
+                aria-label="Toggle language"
+              >
+                <Globe className="w-4 h-4" />
+                <span>{language === 'en' ? 'NL' : 'EN'}</span>
+              </button>
             </div>
 
             {/* Mobile Hamburger Button - Only visible on mobile */}
@@ -112,9 +123,18 @@ export default function Layout({ children }) {
                 })}
                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block">
                   <Button size="lg" className="w-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-3 px-6 text-base shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out focus:outline-none focus:ring-0">
-                    Enroll Now
+                    {t('nav.enrollNow')}
                   </Button>
                 </Link>
+                {/* Mobile Language Toggle */}
+                <button
+                  onClick={() => changeLanguage(language === 'en' ? 'nl' : 'en')}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium transition-colors focus:outline-none focus:ring-0"
+                  aria-label="Toggle language"
+                >
+                  <Globe className="w-5 h-5" />
+                  <span>{language === 'en' ? 'Switch to Nederlands' : 'Switch to English'}</span>
+                </button>
               </div>
             </div>
           )}
@@ -145,18 +165,17 @@ export default function Layout({ children }) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1 text-[#FBBF24]">Derby Kids Online School</h3>
-                  <p className="text-xs text-blue-100">Global Online Learning Platform</p>
+                  <p className="text-xs text-blue-100">{t('footer.tagline')}</p>
                 </div>
               </div>
               <p className="text-blue-100 text-xs leading-relaxed max-w-xs">
-                Nurturing confident, creative, and high-achieving learners<br />
-                through engaging online education designed for the global child.
+                {t('footer.description')}
               </p>
             </div>
 
             {/* Middle Column - Quick Links */}
             <div className="flex-shrink-0">
-              <h3 className="text-base font-bold mb-3 text-[#FBBF24]">Quick Links</h3>
+              <h3 className="text-base font-bold mb-3 text-[#FBBF24]">{t('footer.quickLinks')}</h3>
               <div className="flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <Link
@@ -172,21 +191,21 @@ export default function Layout({ children }) {
 
             {/* Right Column - Contact Us */}
             <div className="flex-shrink-0">
-              <h3 className="text-base font-bold mb-3 text-[#FBBF24]">Contact Us</h3>
+              <h3 className="text-base font-bold mb-3 text-[#FBBF24]">{t('footer.contactUs')}</h3>
               <div className="flex flex-col gap-2 text-white text-xs mb-3">
                 <a
                   href="mailto:derbykidshouse@gmail.com"
                   className="hover:text-[#FBBF24] transition-colors flex items-center gap-2"
                 >
                   <Mail className="w-3 h-3" />
-                  derbykidshouse@gmail.com
+                  {t('footer.email')}
                 </a>
                 <a
                   href="tel:+2348062630979"
                   className="hover:text-[#FBBF24] transition-colors flex items-center gap-2"
                 >
                   <Phone className="w-3 h-3" />
-                  +234 806 263 0979 (WhatsApp)
+                  {t('footer.phone')}
                 </a>
               </div>
               {/* Social Media Buttons */}
@@ -208,8 +227,8 @@ export default function Layout({ children }) {
           </div>
 
           <div className="pt-6 border-t border-blue-400/30 text-center text-white text-sm space-y-1">
-            <p>&copy; {new Date().getFullYear()} Derby Kids Online School. All rights reserved.</p>
-            <p className="text-blue-100">Learning Without Borders, Growing Beyond Limits.</p>
+            <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
+            <p className="text-blue-100">{t('footer.motto')}</p>
           </div>
         </div>
       </footer>

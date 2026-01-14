@@ -5,27 +5,30 @@ import { motion } from "framer-motion";
 import { Video, Clock, Globe, Award, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingIcons from "@/components/FloatingIcons";
-
-const features = [
-  { icon: Video, title: "Live Interactive Classes", description: "Real-time learning with experienced teachers" },
-  { icon: Globe, title: "Global Curriculum", description: "International standards for quality education" },
-  { icon: Clock, title: "Flexible Schedule", description: "Learn at your own pace, anytime, anywhere" },
-  { icon: Award, title: "Certified Programs", description: "Recognized qualifications and certificates" },
-];
-
-const benefits = [
-  "One-on-one attention from dedicated teachers",
-  "Safe and comfortable learning environment",
-  "Access to digital learning resources 24/7",
-  "Regular progress reports and assessments",
-  "Interactive and engaging curriculum",
-  "Affordable tuition with flexible payment plans",
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
+
+  const features = [
+    { icon: Video, titleKey: "home.features.liveClasses", descKey: "home.features.liveClassesDesc" },
+    { icon: Globe, titleKey: "home.features.globalCurriculum", descKey: "home.features.globalCurriculumDesc" },
+    { icon: Clock, titleKey: "home.features.flexibleSchedule", descKey: "home.features.flexibleScheduleDesc" },
+    { icon: Award, titleKey: "home.features.certifiedPrograms", descKey: "home.features.certifiedProgramsDesc" },
+  ];
+
+  const benefitKeys = [
+    "home.benefits.item1",
+    "home.benefits.item2",
+    "home.benefits.item3",
+    "home.benefits.item4",
+    "home.benefits.item5",
+    "home.benefits.item6",
+  ];
+
   // Background slideshow state
   const backgrounds = [
-    { type: "gradient", value: "from-[#1E40AF] via-[#2563EB] to-[#3B82F6]" }, // Royal blue gradient
+    { type: "gradient", value: "from-[#1E40AF] via-[#2563EB] to-[#3B82F6]" },
     { type: "image", value: "/confident.png" },
     { type: "image", value: "/kids.png" },
     { type: "image", value: "/teens.png" },
@@ -36,13 +39,10 @@ export default function Home() {
   const [currentBackground, setCurrentBackground] = useState(0);
 
   useEffect(() => {
-    // Start transition 1 second after page loads
     let timeout;
 
     const scheduleNextTransition = (currentIndex) => {
       const next = (currentIndex + 1) % backgrounds.length;
-      // If transitioning from gradient (index 0) to confident.png (index 1), use 1.5 seconds
-      // Otherwise use 5 seconds
       const delay = currentIndex === 0 ? 1500 : 5000;
 
       timeout = setTimeout(() => {
@@ -51,11 +51,10 @@ export default function Home() {
       }, delay);
     };
 
-    // Wait 1.5 seconds, then immediately transition from gradient to confident.png
     const initialDelay = setTimeout(() => {
-      setCurrentBackground(1); // Move to confident.png
-      scheduleNextTransition(1); // Continue from there
-    }, 1500); // 1.5 second delay before first transition
+      setCurrentBackground(1);
+      scheduleNextTransition(1);
+    }, 1500);
 
     return () => {
       clearTimeout(initialDelay);
@@ -70,20 +69,13 @@ export default function Home() {
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <FloatingIcons />
       <section className="relative text-white py-8 sm:py-12 md:py-16 lg:py-32 overflow-hidden">
-        {/* Previous background (stays visible during transition) */}
+        {/* Previous background */}
         <div className="absolute inset-0">
           {prevBg.type === "gradient" ? (
             <div className={`absolute inset-0 bg-gradient-to-br ${prevBg.value}`}></div>
           ) : (
             <div className="absolute inset-0">
-              <Image
-                src={prevBg.value}
-                alt="Background"
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-              />
+              <Image src={prevBg.value} alt="Background" fill sizes="100vw" className="object-cover" priority />
               <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/80 via-[#2563EB]/70 to-[#3B82F6]/80"></div>
             </div>
           )}
@@ -100,14 +92,7 @@ export default function Home() {
             <div className={`absolute inset-0 bg-gradient-to-br ${currentBg.value}`}></div>
           ) : (
             <div className="absolute inset-0">
-              <Image
-                src={currentBg.value}
-                alt="Background"
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-              />
+              <Image src={currentBg.value} alt="Background" fill sizes="100vw" className="object-cover" priority />
               <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/80 via-[#2563EB]/70 to-[#3B82F6]/80"></div>
             </div>
           )}
@@ -120,16 +105,15 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="w-full">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">
-                Welcome to <span className="text-[#FBBF24]">Derby Kids</span> Online School
+                {t('home.hero.title')} <span className="text-[#FBBF24]">{t('home.hero.schoolName')}</span> {t('home.hero.subtitle')}
               </h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 mb-4 sm:mb-6 md:mb-8 leading-relaxed">
-                Empowering young minds with quality education from the comfort of home.
-                Join over 100 students learning and growing with us.
+                {t('home.hero.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
                 <Link href="/contact" className="w-full sm:w-auto">
                   <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-3 sm:py-4 md:py-6 px-4 sm:px-6 md:px-8 text-sm sm:text-base md:text-lg shadow-xl hover:shadow-2xl w-full sm:w-auto">
-                    Enroll Your Child Now
+                    {t('home.hero.enrollButton')}
                   </Button>
                 </Link>
                 <Link href="/courses" className="w-full sm:w-auto">
@@ -138,7 +122,7 @@ export default function Home() {
                     style={{ color: "#1E40AF" }}
                     className="border-2 border-white bg-white !text-[#1E40AF] hover:bg-white/90 font-bold py-3 sm:py-4 md:py-6 px-4 sm:px-6 md:px-8 text-sm sm:text-base md:text-lg w-full sm:w-auto shadow-xl hover:shadow-2xl"
                   >
-                    <span className="text-[#1E40AF]">Explore Courses</span>
+                    <span className="text-[#1E40AF]">{t('home.hero.exploreButton')}</span>
                   </Button>
                 </Link>
               </div>
@@ -159,28 +143,18 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
                 <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                  <Image
-                    src="/kids.png"
-                    alt="Children learning together"
-                    fill
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover"
-                    priority
-                  />
+                  <Image src="/kids.png" alt="Children learning together" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
                 </div>
               </div>
               <div className="p-6 sm:p-8 lg:p-12">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-[#1E40AF]">
-                  Learning Without Borders, Growing <span className="relative">
-                    Beyond Limits
-                    <span className="absolute bottom-0 left-0 w-full h-1 bg-[#F59E0B] -mt-1"></span>
-                  </span>
+                  {t('home.about.title')}
                 </h2>
                 <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
-                  Where learning meets inspiration! We believe every child deserves access to a quality education that is flexible, engaging, and globally relevant. Our experienced teachers use proven learning strategies and interactive tools to help learners build strong academic foundations and the confidence to succeed.
+                  {t('home.about.description1')}
                 </p>
                 <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                  Whether your child needs full-time online schooling, support in English and Math, or exam preparation, Derby Kids provides the guidance, structure, and care that help learners thrive.
+                  {t('home.about.description2')}
                 </p>
               </div>
             </div>
@@ -192,10 +166,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Why Choose Derby Kids?
+              {t('home.features.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              We provide world-class education with personalized attention for every student
+              {t('home.features.subtitle')}
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -211,8 +185,8 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-2xl flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-[#FBBF24]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{t(feature.titleKey)}</h3>
+                <p className="text-gray-600">{t(feature.descKey)}</p>
               </motion.div>
             ))}
           </div>
@@ -224,14 +198,13 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="w-full">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
-                What You&apos;ll Get
+                {t('home.benefits.title')}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
-                Derby Kids Online School offers comprehensive education with numerous benefits
-                for students and parents alike.
+                {t('home.benefits.description')}
               </p>
               <div className="space-y-4">
-                {benefits.map((benefit, index) => (
+                {benefitKeys.map((key, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -243,7 +216,7 @@ export default function Home() {
                     <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-gray-700 text-base sm:text-lg">{benefit}</p>
+                    <p className="text-gray-700 text-base sm:text-lg">{t(key)}</p>
                   </motion.div>
                 ))}
               </div>
@@ -257,20 +230,20 @@ export default function Home() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Star className="w-8 h-8 text-[#FBBF24]" />
-                <h3 className="text-3xl font-bold">Student Success</h3>
+                <h3 className="text-3xl font-bold">{t('home.stats.title')}</h3>
               </div>
               <div className="space-y-6">
                 <div>
                   <p className="text-5xl font-bold text-[#FBBF24] mb-2">100+</p>
-                  <p className="text-blue-100">Active Students</p>
+                  <p className="text-blue-100">{t('home.stats.students')}</p>
                 </div>
                 <div>
                   <p className="text-5xl font-bold text-[#FBBF24] mb-2">50+</p>
-                  <p className="text-blue-100">Expert Teachers</p>
+                  <p className="text-blue-100">{t('home.stats.teachers')}</p>
                 </div>
                 <div>
                   <p className="text-5xl font-bold text-[#FBBF24] mb-2">98%</p>
-                  <p className="text-blue-100">Parent Satisfaction</p>
+                  <p className="text-blue-100">{t('home.stats.satisfaction')}</p>
                 </div>
               </div>
             </motion.div>
@@ -283,50 +256,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Our Learning Environment
+              {t('home.showcase.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              See how we create engaging and supportive learning experiences for every child
+              {t('home.showcase.subtitle')}
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              {
-                src: "/kids.png",
-                alt: "Students learning together",
-                title: "Interactive Learning",
-                description: "Engaging sessions that make learning fun and effective"
-              },
-              {
-                src: "/onesupport.png",
-                alt: "Online learning session",
-                title: "One-on-One Support",
-                description: "Personalized attention for every student's unique needs"
-              },
-              {
-                src: "/academic.png",
-                alt: "Teenage students",
-                title: "Academic Excellence",
-                description: "Building strong foundations for future success"
-              },
-              {
-                src: "/resources.png",
-                alt: "Educational materials",
-                title: "Rich Resources",
-                description: "Comprehensive learning materials and tools"
-              },
-              {
-                src: "/confident.png",
-                alt: "Happy students",
-                title: "Confident Learners",
-                description: "Nurturing self-confidence and love for learning"
-              },
-              {
-                src: "/global.png",
-                alt: "Global education",
-                title: "Global Reach",
-                description: "Connecting students from around the world"
-              },
+              { src: "/kids.png", alt: "Students learning together", titleKey: "home.showcase.interactive", descKey: "home.showcase.interactiveDesc" },
+              { src: "/onesupport.png", alt: "Online learning session", titleKey: "home.showcase.support", descKey: "home.showcase.supportDesc" },
+              { src: "/academic.png", alt: "Teenage students", titleKey: "home.showcase.excellence", descKey: "home.showcase.excellenceDesc" },
+              { src: "/resources.png", alt: "Educational materials", titleKey: "home.showcase.resources", descKey: "home.showcase.resourcesDesc" },
+              { src: "/confident.png", alt: "Happy students", titleKey: "home.showcase.confident", descKey: "home.showcase.confidentDesc" },
+              { src: "/global.png", alt: "Global education", titleKey: "home.showcase.global", descKey: "home.showcase.globalDesc" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -337,18 +280,12 @@ export default function Home() {
                 className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
+                  <Image src={item.src} alt={item.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover group-hover:scale-110 transition-transform duration-300" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                  <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{t(item.titleKey)}</h3>
+                  <p className="text-gray-600 text-sm">{t(item.descKey)}</p>
                 </div>
               </motion.div>
             ))}
@@ -361,50 +298,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              How It Works
+              {t('home.howItWorks.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              Getting started with Derby Kids Online School is simple and straightforward
+              {t('home.howItWorks.subtitle')}
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                step: "01",
-                title: "Contact Us",
-                description: "Reach out via phone, email, or fill out our enrollment form. Tell us about your child's learning needs and goals.",
-                image: "/hero.jpeg",
-              },
-              {
-                step: "02",
-                title: "Assessment & Matching",
-                description: "We assess your child's needs and match them with a suitable tutor who specializes in their required subjects.",
-                image: "/assessment.png",
-              },
-              {
-                step: "03",
-                title: "Schedule & Payment",
-                description: "Choose a flexible schedule that works for your family. Complete payment and receive all necessary materials.",
-                image: "/schedule.png",
-              },
-              {
-                step: "04",
-                title: "Start Learning",
-                description: "Begin interactive one-on-one sessions with your assigned tutor. Track progress through regular assessments.",
-                image: "/onelearn.png",
-              },
-              {
-                step: "05",
-                title: "Regular Updates",
-                description: "Receive progress reports and feedback. Communicate with tutors and adjust learning plans as needed.",
-                image: "/updates.png",
-              },
-              {
-                step: "06",
-                title: "Achieve Goals",
-                description: "Watch your child excel academically and gain confidence. Celebrate milestones and achievements together.",
-                image: "/goals.png",
-              },
+              { step: "01", titleKey: "home.howItWorks.step1Title", descKey: "home.howItWorks.step1Desc", image: "/hero.jpeg" },
+              { step: "02", titleKey: "home.howItWorks.step2Title", descKey: "home.howItWorks.step2Desc", image: "/assessment.png" },
+              { step: "03", titleKey: "home.howItWorks.step3Title", descKey: "home.howItWorks.step3Desc", image: "/schedule.png" },
+              { step: "04", titleKey: "home.howItWorks.step4Title", descKey: "home.howItWorks.step4Desc", image: "/onelearn.png" },
+              { step: "05", titleKey: "home.howItWorks.step5Title", descKey: "home.howItWorks.step5Desc", image: "/updates.png" },
+              { step: "06", titleKey: "home.howItWorks.step6Title", descKey: "home.howItWorks.step6Desc", image: "/goals.png" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -415,20 +322,14 @@ export default function Home() {
                 className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
+                  <Image src={item.image} alt={t(item.titleKey)} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
                   <div className="absolute top-4 left-4 w-12 h-12 bg-[#FBBF24] rounded-full flex items-center justify-center">
                     <span className="text-[#1E40AF] font-bold text-lg">{item.step}</span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <h3 className="text-xl font-bold text-[#1E40AF] mb-3">{t(item.titleKey)}</h3>
+                  <p className="text-gray-600 leading-relaxed">{t(item.descKey)}</p>
                 </div>
               </motion.div>
             ))}
@@ -439,30 +340,15 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-[#1E40AF] px-4">What Parents Say</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-[#1E40AF] px-4">{t('home.testimonials.title')}</h2>
             <div className="w-24 h-1 bg-[#F59E0B] mx-auto mb-3 sm:mb-4"></div>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">Real stories from real families.</p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">{t('home.testimonials.subtitle')}</p>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              {
-                quote: "My daughter used to struggle with math, but after a few months with Derby Kids, she's more confident and now enjoys solving problems!",
-                name: "Mrs. A. Thompson",
-                location: "UK",
-                initial: "M"
-              },
-              {
-                quote: "The teachers are patient, professional, and know how to keep kids focused online. I've seen so much improvement in my son's reading.",
-                name: "Mr. J. Adewale",
-                location: "Nigeria",
-                initial: "M"
-              },
-              {
-                quote: "Derby Kids has been a blessing! My kids are learning international content right from home  with excellent results.",
-                name: "Mrs. L. Robinson",
-                location: "Canada",
-                initial: "M"
-              }
+              { quoteKey: "home.testimonials.quote1", nameKey: "home.testimonials.parent1", locationKey: "home.testimonials.location1", initial: "M" },
+              { quoteKey: "home.testimonials.quote2", nameKey: "home.testimonials.parent2", locationKey: "home.testimonials.location2", initial: "M" },
+              { quoteKey: "home.testimonials.quote3", nameKey: "home.testimonials.parent3", locationKey: "home.testimonials.location3", initial: "M" },
             ].map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -477,14 +363,14 @@ export default function Home() {
                     <Star key={i} className="w-5 h-5 fill-[#FBBF24] text-[#FBBF24]" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">&quot;{testimonial.quote}&quot;</p>
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">&quot;{t(testimonial.quoteKey)}&quot;</p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-lg">{testimonial.initial}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-[#1E40AF]">{testimonial.name}</p>
-                    <p className="text-gray-500 text-sm">{testimonial.location}</p>
+                    <p className="font-bold text-[#1E40AF]">{t(testimonial.nameKey)}</p>
+                    <p className="text-gray-500 text-sm">{t(testimonial.locationKey)}</p>
                   </div>
                 </div>
               </motion.div>
@@ -496,13 +382,13 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#1E40AF] via-[#2563EB] to-[#3B82F6] text-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">Ready to Start Learning?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">{t('home.cta.title')}</h2>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-              Join Derby Kids Online School today and give your child the gift of quality education.
+              {t('home.cta.description')}
             </p>
             <Link href="/contact">
               <Button size="lg" className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-6 px-12 text-lg shadow-xl hover:shadow-2xl">
-                Enroll Now
+                {t('home.cta.button')}
               </Button>
             </Link>
           </motion.div>

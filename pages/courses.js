@@ -5,114 +5,41 @@ import { motion } from "framer-motion";
 import { BookOpen, Calculator, Globe, Music, Beaker, Code, GraduationCap, FileText, Book, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingIcons from "@/components/FloatingIcons";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Courses() {
+  const { t } = useLanguage();
+
   const coreSubjects = [
-    {
-      icon: BookOpen,
-      title: "English Language Arts (ELA)",
-      description: "Reading, Writing, Grammar, Comprehension, and Creative Writing",
-      color: "from-blue-500 to-blue-600",
-      image: "/english.png",
-    },
-    {
-      icon: Calculator,
-      title: "Mathematics",
-      description: "Problem Solving, Algebra, Geometry, Fractions, and Data Handling",
-      color: "from-purple-500 to-purple-600",
-      image: "/mathematics.png",
-    },
-    {
-      icon: Beaker,
-      title: "Science",
-      description: "Earth Science, Life Science, and Physical Science",
-      color: "from-green-500 to-green-600",
-      image: "/science.png",
-    },
-    {
-      icon: Music,
-      title: "Music",
-      description: "Rhythm, Instruments, and Musical Expression",
-      color: "from-indigo-500 to-indigo-600",
-      image: "/music.png",
-    },
-    {
-      icon: Globe,
-      title: "Social Studies",
-      description: "History, Geography, and Global Awareness",
-      color: "from-orange-500 to-orange-600",
-      image: "/social.png",
-    },
-    {
-      icon: Code,
-      title: "ICT & Coding",
-      description: "Digital Skills, Online Safety, and Basic Programming",
-      color: "from-cyan-500 to-cyan-600",
-      image: "/ict.png",
-    },
+    { icon: BookOpen, titleKey: "courses.core.ela", descKey: "courses.core.elaDesc", color: "from-blue-500 to-blue-600", image: "/english.png" },
+    { icon: Calculator, titleKey: "courses.core.math", descKey: "courses.core.mathDesc", color: "from-purple-500 to-purple-600", image: "/mathematics.png" },
+    { icon: Beaker, titleKey: "courses.core.science", descKey: "courses.core.scienceDesc", color: "from-green-500 to-green-600", image: "/science.png" },
+    { icon: Music, titleKey: "courses.core.music", descKey: "courses.core.musicDesc", color: "from-indigo-500 to-indigo-600", image: "/music.png" },
+    { icon: Globe, titleKey: "courses.core.social", descKey: "courses.core.socialDesc", color: "from-orange-500 to-orange-600", image: "/social.png" },
+    { icon: Code, titleKey: "courses.core.ict", descKey: "courses.core.ictDesc", color: "from-cyan-500 to-cyan-600", image: "/ict.png" },
   ];
 
   const examPrep = [
-    {
-      icon: GraduationCap,
-      title: "11+ Preparation (UK)",
-      description: "Verbal and Non-Verbal Reasoning, English, and Maths",
-      color: "from-red-500 to-red-600",
-    },
-    {
-      icon: FileText,
-      title: "GCSE Foundation & Higher Tier (UK)",
-      description: "English, Maths, Science",
-      color: "from-yellow-500 to-yellow-600",
-    },
-    {
-      icon: GraduationCap,
-      title: "SAT Prep (US)",
-      description: "Reading, Writing, and Mathematics Readiness",
-      color: "from-teal-500 to-teal-600",
-    },
-    {
-      icon: FileText,
-      title: "Cambridge Checkpoint Exams",
-      description: "English, Science, and Mathematics",
-      color: "from-violet-500 to-violet-600",
-    },
+    { icon: GraduationCap, titleKey: "courses.exam.elevenPlus", descKey: "courses.exam.elevenPlusDesc", color: "from-red-500 to-red-600" },
+    { icon: FileText, titleKey: "courses.exam.gcse", descKey: "courses.exam.gcseDesc", color: "from-yellow-500 to-yellow-600" },
+    { icon: GraduationCap, titleKey: "courses.exam.sat", descKey: "courses.exam.satDesc", color: "from-teal-500 to-teal-600" },
+    { icon: FileText, titleKey: "courses.exam.cambridge", descKey: "courses.exam.cambridgeDesc", color: "from-violet-500 to-violet-600" },
   ];
 
   const enrichment = [
-    {
-      icon: Book,
-      title: "Phonics and Early Reading",
-      description: "Building strong reading foundations",
-      color: "from-pink-500 to-pink-600",
-    },
-    {
-      icon: FileText,
-      title: "Creative Writing & Public Speaking",
-      description: "Develop communication and expression skills",
-      color: "from-amber-500 to-amber-600",
-    },
-    {
-      icon: Book,
-      title: "Bible and Character Studies",
-      description: "Building faith, values, and integrity",
-      color: "from-rose-500 to-rose-600",
-    },
-    {
-      icon: Gamepad2,
-      title: "Chess",
-      description: "Strategic thinking and problem-solving",
-      color: "from-slate-500 to-slate-600",
-    },
+    { icon: Book, titleKey: "courses.enrichment.phonics", descKey: "courses.enrichment.phonicsDesc", color: "from-pink-500 to-pink-600" },
+    { icon: FileText, titleKey: "courses.enrichment.creative", descKey: "courses.enrichment.creativeDesc", color: "from-amber-500 to-amber-600" },
+    { icon: Book, titleKey: "courses.enrichment.bible", descKey: "courses.enrichment.bibleDesc", color: "from-rose-500 to-rose-600" },
+    { icon: Gamepad2, titleKey: "courses.enrichment.chess", descKey: "courses.enrichment.chessDesc", color: "from-slate-500 to-slate-600" },
   ];
 
-  const features = [
-    "Interactive live classes with experienced teachers",
-    "Recorded sessions available for review",
-    "Personalized learning pace and attention",
-    "Regular assessments and progress reports",
-    "Digital learning materials and resources",
-    "Small class sizes for better engagement",
+  const featureKeys = [
+    "courses.features.item1",
+    "courses.features.item2",
+    "courses.features.item3",
+    "courses.features.item4",
+    "courses.features.item5",
+    "courses.features.item6",
   ];
 
   return (
@@ -122,7 +49,7 @@ export default function Courses() {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#FBBF24] rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -130,10 +57,10 @@ export default function Courses() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">Our Courses and Programs</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">{t('courses.hero.title')}</h1>
             <div className="w-24 h-1 bg-[#FBBF24] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto px-4">
-              Comprehensive curriculum designed to nurture young minds and prepare them for success
+              {t('courses.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -150,7 +77,7 @@ export default function Courses() {
             className="mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Core Academic Subjects
+              {t('courses.core.title')}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               {coreSubjects.map((course, index) => (
@@ -165,7 +92,7 @@ export default function Courses() {
                   <div className="relative h-40 overflow-hidden">
                     <Image
                       src={course.image || (index % 2 === 0 ? "/books.jpeg" : "/teens.png")}
-                      alt={course.title}
+                      alt={t(course.titleKey)}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -176,8 +103,8 @@ export default function Courses() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
-                    <p className="text-gray-600 mb-4 text-sm">{course.description}</p>
+                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{t(course.titleKey)}</h3>
+                    <p className="text-gray-600 mb-4 text-sm">{t(course.descKey)}</p>
                   </div>
                 </motion.div>
               ))}
@@ -193,7 +120,7 @@ export default function Courses() {
             className="mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Exam Preparation Programs
+              {t('courses.exam.title')}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
               {examPrep.map((course, index) => (
@@ -208,7 +135,7 @@ export default function Courses() {
                   <div className="relative h-40 overflow-hidden">
                     <Image
                       src={index % 2 === 0 ? "/books.jpeg" : "/teens.png"}
-                      alt={course.title}
+                      alt={t(course.titleKey)}
                       fill
                       sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -219,8 +146,8 @@ export default function Courses() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-[#1E40AF] mb-2">{course.title}</h3>
-                    <p className="text-gray-600 text-sm">{course.description}</p>
+                    <h3 className="text-lg font-bold text-[#1E40AF] mb-2">{t(course.titleKey)}</h3>
+                    <p className="text-gray-600 text-sm">{t(course.descKey)}</p>
                   </div>
                 </motion.div>
               ))}
@@ -236,7 +163,7 @@ export default function Courses() {
             className="mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent px-4">
-              Enrichment and Skill-Based Programs
+              {t('courses.enrichment.title')}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               {enrichment.map((course, index) => (
@@ -250,8 +177,8 @@ export default function Courses() {
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={course.title === "Chess" ? "/chess.png" : (index % 2 === 0 ? "/kids.png" : "/hero.jpeg")}
-                      alt={course.title}
+                      src={t(course.titleKey) === "Chess" || t(course.titleKey) === "Schaken" ? "/chess.png" : (index % 2 === 0 ? "/kids.png" : "/hero.jpeg")}
+                      alt={t(course.titleKey)}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -262,8 +189,8 @@ export default function Courses() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{course.title}</h3>
-                    <p className="text-gray-600 text-sm">{course.description}</p>
+                    <h3 className="text-xl font-bold text-[#1E40AF] mb-2">{t(course.titleKey)}</h3>
+                    <p className="text-gray-600 text-sm">{t(course.descKey)}</p>
                   </div>
                 </motion.div>
               ))}
@@ -282,14 +209,13 @@ export default function Courses() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#1E40AF] to-[#2563EB] bg-clip-text text-transparent">
-                What Makes Our Courses Special
+                {t('courses.features.title')}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
-                We combine proven teaching methods with modern technology to deliver
-                exceptional learning experiences.
+                {t('courses.features.description')}
               </p>
               <div className="space-y-4">
-                {features.map((feature, index) => (
+                {featureKeys.map((key, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -303,7 +229,7 @@ export default function Courses() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="text-gray-700 text-lg">{feature}</p>
+                    <p className="text-gray-700 text-lg">{t(key)}</p>
                   </motion.div>
                 ))}
               </div>
@@ -316,20 +242,20 @@ export default function Courses() {
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-br from-[#1E40AF] to-[#2563EB] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
             >
-              <h3 className="text-3xl font-bold mb-6">Enrollment Information</h3>
+              <h3 className="text-3xl font-bold mb-6">{t('courses.enrollment.title')}</h3>
               <div className="space-y-6 mb-8">
                 <div>
-                  <p className="text-blue-100 mb-2">Class Duration</p>
-                  <p className="text-2xl font-bold text-[#FBBF24]">1 hour</p>
+                  <p className="text-blue-100 mb-2">{t('courses.enrollment.duration')}</p>
+                  <p className="text-2xl font-bold text-[#FBBF24]">{t('courses.enrollment.durationValue')}</p>
                 </div>
                 <div>
-                  <p className="text-blue-100 mb-2">Class Size</p>
-                  <p className="text-lg font-bold text-[#FBBF24]">One-on-one for all classes</p>
-                  <p className="text-sm text-blue-200 mt-1">(Coding, Chess, and Bible Studies available in groups)</p>
+                  <p className="text-blue-100 mb-2">{t('courses.enrollment.classSize')}</p>
+                  <p className="text-lg font-bold text-[#FBBF24]">{t('courses.enrollment.classSizeValue')}</p>
+                  <p className="text-sm text-blue-200 mt-1">{t('courses.enrollment.classSizeNote')}</p>
                 </div>
                 <div>
-                  <p className="text-blue-100 mb-2">Schedule</p>
-                  <p className="text-2xl font-bold text-[#FBBF24]">Flexible timing</p>
+                  <p className="text-blue-100 mb-2">{t('courses.enrollment.schedule')}</p>
+                  <p className="text-2xl font-bold text-[#FBBF24]">{t('courses.enrollment.scheduleValue')}</p>
                 </div>
               </div>
               <Link href="/contact">
@@ -337,7 +263,7 @@ export default function Courses() {
                   size="lg"
                   className="w-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-6 shadow-xl"
                 >
-                  Enroll Now
+                  {t('courses.enrollment.enrollButton')}
                 </Button>
               </Link>
             </motion.div>
@@ -354,17 +280,17 @@ export default function Courses() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">
-              Ready to Begin Your Learning Journey?
+              {t('courses.cta.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-              Contact us today to learn more about our courses and enrollment process.
+              {t('courses.cta.description')}
             </p>
             <Link href="/contact">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] hover:from-[#D97706] hover:to-[#F59E0B] text-white font-bold py-6 px-12 text-lg shadow-xl hover:shadow-2xl"
               >
-                Get Started Today
+                {t('courses.cta.button')}
               </Button>
             </Link>
           </motion.div>
